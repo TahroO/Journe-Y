@@ -11,44 +11,51 @@
 
 public class CommandWords
 {
-    // a constant array that holds all valid command words
-    private static final String[] validCommands = {
-        "go", "look", "quit", "help", "pick", "bag"
-    };
+    enum Command {
+        PICK("pickup"),
+        GO("go"),
+        LOOK("look"),
+        QUIT("quit"),
+        HELP("help"),
+        BAG("bag");
 
-    /**
-     * Constructor - initialise the command words.
-     */
-    public CommandWords()
-    {
-        // nothing to do at the moment...
+        public final String label;
+
+        Command(String label) {
+            this.label = label;
+        }
+
+        public static Command valueOfLabel(String label) {
+            for (Command cmd : values()) {
+                if (cmd.label.equals(label)) {
+                    return cmd;
+                }
+            }
+            return null;
+        }
     }
 
     /**
-     * Check whether a given String is a valid command word. 
-     * @return true if a given string is a valid command,
+     * Checks whether a given string is a valid command word.
+     * @return True if a given string is a valid command,
      * false if it isn't.
      */
     public boolean isCommand(String aString)
     {
-        for(int i = 0; i < validCommands.length; i++) {
-            if(validCommands[i].equals(aString)) {
-                return true;
-            }
+        if (Command.valueOfLabel(aString) != null) {
+            return true;
         }
-        // if we get here, the string was not found in the commands
         return false;
     }
     /**
-     * Return all of the valid commands as a String
+     * Returns all valid commands in one string.
      */
     public String getValidCommands(){
         String s = "   ";
-        for (String c:validCommands){
-            s = s + " " + c;
+        for (CommandWords.Command c : CommandWords.Command.values()){
+            s = s + " " + c.label;
         }
         return s;
     }
-    
-    
+
 }
