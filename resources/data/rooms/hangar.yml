@@ -1,0 +1,17 @@
+id: hangar
+name: a hangar
+image: resources/hangar1.png
+audio: resources/jungle.mp3
+description: >
+  description of the hangar
+  2nd line of hangar description
+exits:
+  north: kitchen
+  east: toilet
+items:
+  - id: bottle
+    name: a green bottle
+    description: a green bottle's description text
+  - id: keycard
+    name: a key card
+    description: a key card description
