@@ -1,0 +1,18 @@
+id: caveMiddle
+name: in middle of a cave
+image: resources/images/rooms/caveMiddle.png
+audio: resources/music/cave.mp3
+description: >
+  making your way through the mysterious cave.
+  It seems to be important to carefully examine the cave, looking for any items,
+  such as glowing stones near you to help navigate out of the cave.
+exits:
+  south: caveStart
+  north: caveOut
+items:
+  - id: stone
+    name: a glowing stone
+    description: a glowing stone...which glows!
+  - id: banana
+    name: a banana
+    description: something to eat

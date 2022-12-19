@@ -1,0 +1,20 @@
+id: jungleWay
+name: a way through the jungel
+image: resources/images/rooms/jungleWay2.png
+audio: resources/music/jungle.mp3
+description: >
+  feeling how determination fuels you every step,
+  You slash your way through the dense foliage, following the faint glow of the sun.
+
+
+  Will you find a way out?
+exits:
+  west: train
+  east: grave
+items:
+  - id: bottle
+    name: a green bottle
+    description: a green bottle's description text
+  - id: keycard
+    name: a key card
+    description: a key card description

@@ -1,0 +1,20 @@
+id: portal
+name: a portal
+image: resources/images/rooms/portal2.png
+audio: resources/portal.mp3
+description: >
+  in front of a teleporter which was a marvel of technology,
+  capable of transporting beings instantaneously to yet unknown locations.
+  It was a popular mode of transportation for the native alien species.
+  However, the teleporter has some limitations, as it could only transport organic material
+  within the planet's atmosphere and is not able to reach other planets or galaxies."
+exits:
+  teleport: teleport
+  east: portalWay
+items:
+  - id: bottle
+    name: a green bottle
+    description: a green bottle's description text
+  - id: keycard
+    name: a key card
+    description: a key card description

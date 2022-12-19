@@ -1,0 +1,22 @@
+id: villYard
+name: a yard in the village
+image: resources/images/rooms/villYard2.png
+audio: resources/village.mp3
+description: >
+  walking through a strange, alien yard.
+  Your attention falls to a bright blue glowing door.
+  It seems to radiate a pulsing energy that calls on you,
+  beckoning you to 
+  
+  come closer...
+exits:
+  west: townHall
+  south: grave
+  east: portalWay
+items:
+  - id: bottle
+    name: a green bottle
+    description: a green bottle's description text
+  - id: keycard
+    name: a key card
+    description: a key card description

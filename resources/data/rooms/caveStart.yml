@@ -1,13 +1,14 @@
 id: caveStart
-name: a kitchen
-image: resources/kitchen.png
-audio: resources/test.mp3
+name: Campfire
+image: resources/images/rooms/caveStart2.png
+audio: resources/music/cave.mp3
 description: >
-  description of the kitchen
-  2nd line of kitchen description
+  waking up in a cave on an ancient alien planet.
+  The unfamiliar surroundings and lack of landmarks makes it difficult to orient yourself.
+  It seems to be a good idea to look around and search for a way out of this cave.      
 exits:
-  south: hangar
-  east: toilet
+  north: caveMiddle
+
 items:
   - id: bottle
     name: a green bottle

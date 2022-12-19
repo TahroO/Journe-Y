@@ -1,0 +1,22 @@
+id: train
+name: an abandoned trainstation
+image: resources/images/rooms/train2.png
+audio: resources/music/jungle.mp3
+description: >
+  reaching an abandoned train station.
+  The tracks were rusted and overgrown,
+  They are disappearing into the dense jungle.
+  
+  
+  You have to decide which tracks you will follow.
+exits:
+  west: waterfall
+  east: jungleWay
+  north: villEntrance
+items:
+  - id: rusty nails
+    name: some rusty nails
+    description: only old rusty nails, maybe usefull.
+  - id: ticket
+    name: an old train ticket
+    description: "choo, choo, tschakka, tschakka, choo, choo!"

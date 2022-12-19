@@ -17,7 +17,7 @@ public class ImagePanel extends JPanel {
      * Constructor for objects of class ImagePanel
      */
     public ImagePanel() {
-        image = Toolkit.getDefaultToolkit().createImage("resources/caveStart.png");
+        image = Toolkit.getDefaultToolkit().createImage("resources/images/rooms/4167399110_waterfall__cyberpunk__HQ__unreal_engine__jungle.png");
     }
 
     /**

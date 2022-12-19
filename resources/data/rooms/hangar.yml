@@ -1,13 +1,17 @@
 id: hangar
 name: a hangar
-image: resources/hangar2.png
-audio: resources/jungle.mp3
+image: resources/images/rooms/hangar2.png
+audio: resources/music/jungle.mp3
 description: >
-  description of the hangar
-  2nd line of hangar description
+ending up in an abandoned space hangar,
+
+its walls and ceiling rusted and crumbling.
+        
+As you make your way through the debris-strewn floor,
+        
+you notice a rusted spaceship in the center of this room.
 exits:
-  north: kitchen
-  east: toilet
+  west: villEntrance
 items:
   - id: bottle
     name: a green bottle

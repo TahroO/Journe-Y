@@ -1,0 +1,21 @@
+id: caveOut
+name: an entrance of a cave
+image: resources/images/rooms/caveOut2.png
+audio: resources/music/jungle.mp3
+description: >
+  at an entrance of a cave.
+  The unfamiliar landscape, with its strange rock formations and unusual flora and fauna,
+  is a sight unlike anything you have ever seen before.
+
+
+  The jungle is waiting for you!
+exits:
+  south: caveMiddle
+  east: waterfall
+items:
+  - id: banana
+    name: a banana
+    description: something to eat
+  - id: keycard
+    name: a key card
+    description: a key card description

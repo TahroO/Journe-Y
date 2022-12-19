@@ -1,0 +1,20 @@
+id: portalWay
+name: a way to a portal
+image: resources/images/rooms/portalWay2.png
+audio: resources/portalWay.mp3
+description: >
+  approaching the next room and the glow intensifies,
+  enveloping you in a warm, electric embrace.
+  
+  
+  Now take a deep breath and push the next door open, step into the unknown!
+exits:
+  west: portal
+  east: villYard
+items:
+  - id: banana
+    name: a green banana
+    description: something to eat
+  - id: cent
+    name: a coin
+    description: an old coin

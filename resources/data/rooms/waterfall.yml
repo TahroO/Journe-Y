@@ -1,0 +1,19 @@
+id: waterfall
+name: a waterfall
+image: resources/images/rooms/waterfall2.png
+audio: resources/music/waterfall.mp3
+description: >
+  exploring a stunning waterfall cascading down
+  the green walls of the jungle, its mist rising high into the air.
+  The sound of the rushing water fills the air,
+  echoing through the surrounding ancient alien trees.
+exits:
+  west: caveOut
+  east: train
+items:
+  - id: fish
+    name: a purple fish
+    description: something to eat
+  - id: fishing rod
+    name: an old fishing rod
+    description: this seems to be very old and broken

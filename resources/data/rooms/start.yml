@@ -9,8 +9,8 @@ description: >
   Journe:Y is a textbased adventure Game.
   Type 'help' to see all possible commands.
 exits:
-  south: hangar
-  east: toilet
+  start: caveStart
+  credits: 
 items:
   - id: bottle
     name: a green bottle

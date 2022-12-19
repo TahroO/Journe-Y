@@ -1,0 +1,19 @@
+id: grave
+name: a graveyard
+image: resources/images/rooms/grave2.png
+audio: resources/music/grave.mp3
+description: >
+  conquer an alien like grave yard.
+  The jungle that surroundes it is eerily quiet and open.
+  
+  
+  This seems a good place to rest for a while.
+exits:
+  east: jungleWay
+items:
+  - id: bones
+    name: some old bones
+    description: they smell... old.
+  - id: mushroom
+    name: halimash
+    description: something to eat, maybe.

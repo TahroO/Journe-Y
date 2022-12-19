@@ -1,0 +1,21 @@
+id: villEntrance
+name: Entrance of the village
+image: resources/images/rooms/villEntrance2.png
+audio: resources/village.mp3
+description: >
+  emerging from the dense jungle and couldn't believe
+  your eyes when seeing the ancient, lost village in front of you.
+  The stone buildings are weathered and worn, but the intricate carvings
+  and symbols etched into the walls spoke to the incredible sophistication
+  and advanced technology of the civilization that had once inhabited this place.
+exits:
+  south: train
+  east: townHall
+  west: hangar
+items:
+  - id: bottle
+    name: a green bottle
+    description: a green bottle's description text
+  - id: keycard
+    name: a key card
+    description: a key card description
