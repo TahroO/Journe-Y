@@ -1,59 +1,46 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
-
 
 /**
- * Write a description of class Inventory here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Represents a player's inventory.
  */
-public class Inventory
-{
-    // instance variables - replace the example below with your own
+public class Inventory {
     private HashMap<String, Item> items;
-    
+
     /**
-     * Constructor for objects of class Inventory
+     * Constructor for objects of class Inventory.
      */
-    public Inventory()
-    {
-        // initialise instance variables
+    public Inventory() {
         items = new HashMap<>();
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Adds an item to this inventory.
+     * @param key Item ID.
+     * @param item Item object.
      */
-    public void printItems()
-    {
-        System.out.println(getItemInfo());
-        System.out.println();
-     }
-     
-    public void addItem(String key, Item item)
-    {    
+    public void addItem(String key, Item item) {
         items.put(key, item);
     }
 
     public String getItemInfo() {
-        List<String> output = new ArrayList<>();
-        if(items.isEmpty())
-        {
-            output.add("Your bag is empty.");
-        }
-        else {
+        StringBuilder output = new StringBuilder();
+        if (items.isEmpty()) {
+            output.append("Your bag is empty.");
+        } else {
+            output.append("Your bag contains ")
+                    .append(Util.join(items.values().stream().map(Item::getDescription).toList()))
+                    .append('.');
 
-            Set<String> itemSet = items.keySet();
-            for (String e : itemSet) {
-                output.add(items.get(e).getDescription());
-            }
         }
-        return String.join(", ", output);
+        return output.toString();
     }
+
+    /**
+     * Prints inventory list to stdout.
+     */
+    public void printItemInfo() {
+        System.out.println(getItemInfo());
+        System.out.println();
+    }
+
 }

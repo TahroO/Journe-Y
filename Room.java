@@ -1,39 +1,37 @@
-import java.util.Set;
+import java.util.List;
 import java.util.HashMap;
-import java.util.ArrayList;
 
 /**
  * Class Room - a room in an adventure game.
- *
- * This class is part of the "World of Zuul" application. 
- * "World of Zuul" is a very simple, text based adventure game.  
- *
- * A "Room" represents one location in the scenery of the game.  It is 
- * connected to other rooms via exits.  The exits are labelled north, 
+ * <p>
+ * This class is part of the "World of Zuul" application.
+ * "World of Zuul" is a very simple, text based adventure game.
+ * <p>
+ * A "Room" represents one location in the scenery of the game.  It is
+ * connected to other rooms via exits.  The exits are labelled north,
  * east, south, west.  For each direction, the room stores a reference
  * to the neighboring room, or null if there is no exit in that direction.
- * 
- * @author  Michael Kölling and David J. Barnes
+ *
+ * @author Michael Kölling and David J. Barnes
  * @version 2016.02.29
  */
-public class Room 
-{
+public class Room {
     private String id;
     private String name;
     private String description;
     private String imagePath;
     private String audioPath;
-    private HashMap<String,Room> exits;
-    private HashMap<String,Item> items;
+    private HashMap<String, Room> exits;
+    private HashMap<String, Item> items;
 
     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
      * "an open court yard".
+     *
      * @param description The room's description.
      */
-    public Room(String id, String name, String description, String image, String audio)
-    {
+    public Room(String id, String name, String description, String image, String audio) {
         this.id = id;
         this.name = name;
         this.imagePath = image;
@@ -43,9 +41,8 @@ public class Room
         items = new HashMap<>();
     }
 
-    public Room(String description, String image)
-    {
-        this(null,null,description,image,null);
+    public Room(String description, String image) {
+        this(null, null, description, image, null);
     }
 
     public String getId() {
@@ -56,113 +53,91 @@ public class Room
         return name;
     }
 
-    public String getAudio() 
-    {
-        return audioPath;
-    }
-
-    /**
-     * @return The description of the room.
-     */
-    public String getDescription()
-    {
+    public String getDescription() {
         return description;
     }
 
-    public String getImagePath()
-    {
+    public String getImagePath() {
         return imagePath;
+    }
+
+    public String getAudioPath() {
+        return audioPath;
     }
 
     /**
      * Gets the room for a specific exit
      */
-    public Room getExit(String direction){
+    public Room getExit(String direction) {
         return exits.get(direction);
     }
 
     /**
      * Set exit for a particular direction
      */
-    public void setExit(String direction, Room whichRoom){
+    public void setExit(String direction, Room whichRoom) {
         exits.put(direction, whichRoom);
     }
 
     /**
      * Puts an item in a room.
      */
-    public void putItem(String key, Item item)
-    {
-        items.put(key, item);   
+    public void putItem(String key, Item item) {
+        items.put(key, item);
     }
 
-    public Item pickUpItem(String itemKey)
-    {
+    /**
+     * Removes an item from this room and returns it.
+     *
+     * @param itemKey Item ID.
+     * @return The removed item object or null.
+     */
+    public Item pickUpItem(String itemKey) {
         // Item out of HashMap.
         Item item = items.get(itemKey);
         // If item exists, remove it from room.
-        if(item == null)
-        {
-            System.out.println("This cannot be picked up!");
-        }
-        else
-        {
+        if (item != null) {
             items.remove(itemKey);
         }
         return item;
     }
 
+    public String getLocationInfo() {
+        StringBuilder output = new StringBuilder("You are ");
+        output.append(description)
+                .append('\n')
+                .append("Exits: ")
+                .append(Util.join(exits.keySet().stream().toList()))
+                .append('.');
+        return output.toString();
+    }
+
+    public String getItemInfo() {
+        StringBuilder output = new StringBuilder("You see ");
+        if (items.size() == 0) {
+            output.append("nothing special.");
+        } else {
+            List<String> descriptions = items.values().stream().map(Item::getDescription).toList();
+            output.append(Util.join(descriptions))
+                    .append('.');
+        }
+        return output.toString();
+    }
 
     /**
-     * Printing the location information
+     * Printing the location info to stdout.
      */
-    public void printLocationInfo () {
-        System.out.println("You are " + description);
-        System.out.print("Exits: ");
-
-        Set<String> exitSet = exits.keySet();
-        for (String e: exitSet){
-            System.out.print (e + " ");
-        }
-
+    public void printLocationInfo() {
+        System.out.println(getLocationInfo());
         System.out.println();
     }
 
-    public void printItemInfo() 
-    {
+    /**
+     * Prints item list to stdout.
+     */
+    public void printItemInfo() {
         System.out.println(getItemInfo());
         System.out.println();
     }
 
-    public String getItemInfo() {
-        String output = "You see ";
-        if (items.size() == 0)
-        {
-            output += "an empty room";
-        }
-        else{
-            Set<String> itemSet = items.keySet();
-            int i = 0;
-            for (String e : itemSet)
-            {
-                Item item = items.get(e);
-                output += item.getDescription();
-                if( i == itemSet.size() - 1 )
-                {
-                    output += "";
-                }
-                else if( i == itemSet.size() - 2 )
-                {
-                    output += " and ";
-                }
-                else
-                {
-                    output += ", ";
-                }
-                i++;
-            }
-
-        }
-        return output;
-    }
 }

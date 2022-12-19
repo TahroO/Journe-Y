@@ -22,21 +22,7 @@ public class ImageView {
     public ImageView(ActionListener commandListener) {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         imagePanel = createImagePanel();
-        textPane = createTextPane();
-        textPane.setText("test text");
-        imagePanel.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridheight = 1;
-        gbc.gridwidth = 1;
-        gbc.anchor = GridBagConstraints.SOUTH;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.weighty = 1;
-        gbc.weightx = 0;
-        imagePanel.add(textPane, gbc);
         frame.add(imagePanel, BorderLayout.NORTH);
         JTextField textField = createTextField();
         textField.addActionListener(commandListener);
@@ -47,22 +33,6 @@ public class ImageView {
         textField.requestFocus();
     }
 
-    public void quit() {
-        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-    }
-
-    public void changeRoom(Command cmd, Room room) {
-        // Set image and audio.
-        imagePanel.setImage(room.getImagePath());
-        String audio = room.getAudio();
-        if (audio != null) {
-            player.stop();
-            player.startPlaying(audio);
-        }
-        // Show description.
-        setText(getCmdPrompt(cmd) + room.getDescription());
-    }
-
     private String getCmdPrompt(Command cmd) {
         if (cmd == null) {
             return "";
@@ -71,10 +41,6 @@ public class ImageView {
             return "> " + cmd.getInputLine() + "\n\n";
         }
         return "> " + cmd.getCommandWord().label + (cmd.hasSecondWord() ? " " + cmd.getSecondWord() : "") + "\n\n";
-    }
-
-    public void setText(String... text) {
-        setText(null, text);
     }
 
     public void setText(Command cmd, String... text) {
@@ -92,10 +58,39 @@ public class ImageView {
 
     }
 
+    public void setText(String... text) {
+        setText(null, text);
+    }
+
+    public void changeRoom(Command cmd, Room room) {
+        // Set image and audio.
+        imagePanel.setImage(room.getImagePath());
+        String audio = room.getAudioPath();
+        if (audio != null) {
+            player.stop();
+            player.startPlaying(audio);
+        }
+        // Show description.
+        setText(getCmdPrompt(cmd) + room.getLocationInfo());
+    }
+
+    /**
+     * Sets this JFrame visible.
+     */
     public void show() {
         frame.setVisible(true);
     }
 
+    /**
+     * Closes this JFrame.
+     */
+    public void quit() {
+        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+    }
+
+    /**
+     * Creates a JTextField component for user input.
+     */
     private JTextField createTextField() {
         JTextField textField = new JTextField(0);
         textField.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
@@ -108,14 +103,9 @@ public class ImageView {
         return textField;
     }
 
-    private ImagePanel createImagePanel() {
-        ImagePanel imagePanel = new ImagePanel();
-        imagePanel.setPreferredSize(new Dimension(IMAGE_WIDTH, IMAGE_HEIGHT));
-        imagePanel.setOpaque(false);
-//        imagePanel.setImage("resources/seal.png");
-        return imagePanel;
-    }
-
+    /**
+     * Creates a JTextPane for text output.
+     */
     private JTextPane createTextPane() {
         JTextPane textPane = new JTextPane() {
             @Override
@@ -128,12 +118,36 @@ public class ImageView {
             }
         };
         textPane.setEditable(false);
+        textPane.setFocusable(false);
         textPane.setOpaque(false);
         textPane.setForeground(Color.WHITE);
         textPane.setMargin(new Insets(10, 10, 10, 10));
         textPane.setFont(new Font(Font.MONOSPACED, Font.PLAIN, FONT_SIZE));
         textPane.setPreferredSize(new Dimension((int) (IMAGE_WIDTH * 0.5), FONT_SIZE + 5));
         return textPane;
+    }
+
+    /**
+     * Creates an ImagePanel component to show images.
+     */
+    private ImagePanel createImagePanel() {
+        ImagePanel imagePanel = new ImagePanel();
+        imagePanel.setPreferredSize(new Dimension(IMAGE_WIDTH, IMAGE_HEIGHT));
+        imagePanel.setOpaque(false);
+        textPane = createTextPane();
+        textPane.setText("test text");
+        imagePanel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridheight = 1;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.SOUTH;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weighty = 1;
+        gbc.weightx = 0;
+        imagePanel.add(textPane, gbc);
+        return imagePanel;
     }
 
     public class BlockCaret extends DefaultCaret {

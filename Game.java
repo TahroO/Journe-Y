@@ -160,7 +160,7 @@ public class Game implements ActionListener {
      * Show bag content command.
      */
     private void bag(Command command) {
-        inventory.printItems();
+        inventory.printItemInfo();
         view.setText(command, inventory.getItemInfo());
     }
 
@@ -177,12 +177,14 @@ public class Game implements ActionListener {
 
         String itemKey = command.getSecondWord();
         Item item = currentRoom.pickUpItem(itemKey);
-        if (item != null) {
+        if (item == null) {
+            System.out.println("This cannot be picked up!");
+            view.setText(command, "This cannot be picked up!");
+        } else {
             inventory.addItem(itemKey, item);
             System.out.println("You picked up " + item.getDescription());
             view.setText(command, "You picked up " + item.getDescription());
         }
-
     }
 
     /**
@@ -202,8 +204,13 @@ public class Game implements ActionListener {
     }
 
     public static void main(String[] args) {
-        Game game = new Game();
-        game.play();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                Game game = new Game();
+                game.play();
+            }
+        });
     }
 
 }
