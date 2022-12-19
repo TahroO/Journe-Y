@@ -21,6 +21,7 @@ public class Command
 {
     private CommandWords.Command commandWord;
     private String secondWord;
+    private String inputLine;
 
     /**
      * Create a command object. First and second word must be supplied, but
@@ -29,9 +30,10 @@ public class Command
      *                  was not recognised.
      * @param secondWord The second word of the command.
      */
-    public Command(CommandWords.Command firstWord, String secondWord)
+    public Command(CommandWords.Command firstWord, String secondWord, String inputLine)
     {
-        commandWord = firstWord;
+        this.inputLine = inputLine;
+        this.commandWord = firstWord;
         this.secondWord = secondWord;
     }
 
@@ -68,6 +70,10 @@ public class Command
     public boolean hasSecondWord()
     {
         return (secondWord != null);
+    }
+
+    public String getInputLine() {
+        return inputLine;
     }
 }
 

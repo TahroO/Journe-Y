@@ -88,12 +88,8 @@ public class MusicPlayer
     private void setupPlayer(String filename)
     {
         try {
-            InputStream is = getInputStream(filename);
+            InputStream is = getClass().getResourceAsStream(filename);
             player = new AdvancedPlayer(is, createAudioDevice());
-        }
-        catch (IOException e) {
-            reportProblem(filename);
-            killPlayer();
         }
         catch(JavaLayerException e) {
             reportProblem(filename);

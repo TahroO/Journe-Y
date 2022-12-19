@@ -130,10 +130,15 @@ public class Room
 
     public void printItemInfo() 
     {
-        System.out.print("You see ");
-        if (items.size() == 0) 
+        System.out.println(getItemInfo());
+        System.out.println();
+    }
+
+    public String getItemInfo() {
+        String output = "You see ";
+        if (items.size() == 0)
         {
-            System.out.print("an empty room");
+            output += "an empty room";
         }
         else{
             Set<String> itemSet = items.keySet();
@@ -141,23 +146,23 @@ public class Room
             for (String e : itemSet)
             {
                 Item item = items.get(e);
-                System.out.print (item.getDescription());
+                output += item.getDescription();
                 if( i == itemSet.size() - 1 )
                 {
-                    System.out.print("");
+                    output += "";
                 }
                 else if( i == itemSet.size() - 2 )
                 {
-                    System.out.print(" and ");
+                    output += " and ";
                 }
                 else
                 {
-                    System.out.print(", ");
+                    output += ", ";
                 }
                 i++;
             }
 
         }
-        System.out.println();        
+        return output;
     }
 }

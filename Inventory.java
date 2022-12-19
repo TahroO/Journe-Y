@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 
@@ -31,15 +32,7 @@ public class Inventory
      */
     public void printItems()
     {
-        if(items.isEmpty())
-        {
-            System.out.println("Your bag is empty");
-            return;
-        }
-        Set<String> itemSet = items.keySet();
-        for (String e: itemSet){
-            System.out.print (items.get(e).getDescription() + " ");
-        }
+        System.out.println(getItemInfo());
         System.out.println();
      }
      
@@ -47,5 +40,20 @@ public class Inventory
     {    
         items.put(key, item);
     }
-     
+
+    public String getItemInfo() {
+        List<String> output = new ArrayList<>();
+        if(items.isEmpty())
+        {
+            output.add("Your bag is empty.");
+        }
+        else {
+
+            Set<String> itemSet = items.keySet();
+            for (String e : itemSet) {
+                output.add(items.get(e).getDescription());
+            }
+        }
+        return String.join(", ", output);
+    }
 }
