@@ -1,12 +1,12 @@
-id: hangar
-name: a hangar
-image: resources/hangar2.png
-audio: resources/jungle.mp3
+id: kitchen3
+name: a kitchen
+image: resources/kitchen.png
+audio: resources/test.mp3
 description: >
-  description of the hangar
-  2nd line of hangar description
+  description of the kitchen
+  2nd line of kitchen description
 exits:
-  north: kitchen
+  south: hangar
   east: toilet
 items:
   - id: bottle

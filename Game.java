@@ -42,7 +42,7 @@ public class Game implements ActionListener {
     private void createRooms() {
         MapImporter mapImporter = new MapImporter();
         Map<String, Room> rooms = mapImporter.getRooms();
-        currentRoom = rooms.get("kitchen");
+        currentRoom = rooms.get("start");
     }
 
     /**

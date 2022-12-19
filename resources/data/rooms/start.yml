@@ -1,10 +1,13 @@
-id: kitchen
-name: a kitchen
+id: start
+name: the beginning
 image: resources/images/rooms/4167399110_waterfall__cyberpunk__HQ__unreal_engine__jungle.png
 audio: resources/test.mp3
 description: >
-  description of the kitchen
-  2nd line of kitchen description
+  > Welcome to the Game Journe:Y
+  
+  
+  Journe:Y is a textbased adventure Game.
+  Type 'help' to see all possible commands.
 exits:
   south: hangar
   east: toilet
