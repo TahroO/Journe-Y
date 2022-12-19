@@ -1,7 +1,7 @@
 id: start
 name: the beginning
 image: resources/images/rooms/4167399110_waterfall__cyberpunk__HQ__unreal_engine__jungle.png
-audio: resources/test.mp3
+audio: resources/music/start.mp3
 description: >
   > Welcome to the Game Journe:Y
   
