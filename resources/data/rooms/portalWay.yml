@@ -1,7 +1,7 @@
 id: portalWay
 name: a way to a portal
 image: resources/images/rooms/portalWay2.png
-audio: resources/portalWay.mp3
+audio: resources/music/portalWay.mp3
 description: >
   approaching the next room and the glow intensifies,
   enveloping you in a warm, electric embrace.

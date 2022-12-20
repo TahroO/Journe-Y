@@ -1,7 +1,7 @@
 id: portal
 name: a portal
 image: resources/images/rooms/portal2.png
-audio: resources/portal.mp3
+audio: resources/music/portal.mp3
 description: >
   in front of a teleporter which was a marvel of technology,
   capable of transporting beings instantaneously to yet unknown locations.
