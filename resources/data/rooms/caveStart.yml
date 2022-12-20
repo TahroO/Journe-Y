@@ -1,7 +1,7 @@
 id: caveStart
 name: Campfire
-image: resources/images/rooms/caveStart2.png
-audio: resources/music/cave.mp3
+image: /resources/images/rooms/caveStart2.png
+audio: /resources/music/cave.mp3
 description: >
   waking up in a cave on an ancient alien planet.
   The unfamiliar surroundings and lack of landmarks makes it difficult to orient yourself.
@@ -11,8 +11,8 @@ exits:
 
 items:
   - id: bottle
-    name: a green bottle
-    description: a green bottle's description text
+    name: a red bottle
+    description: a red bottle's description text
   - id: keycard
     name: a key card
     description: a key card description

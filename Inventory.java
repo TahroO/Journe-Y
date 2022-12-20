@@ -35,12 +35,4 @@ public class Inventory {
         return output.toString();
     }
 
-    /**
-     * Prints inventory list to stdout.
-     */
-    public void printItemInfo() {
-        System.out.println(getItemInfo());
-        System.out.println();
-    }
-
 }

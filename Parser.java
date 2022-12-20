@@ -28,15 +28,6 @@ public class Parser {
         reader = new Scanner(System.in);
     }
 
-    /**
-     * @return The next command from the user.
-     */
-    public Command getCommand() {
-        // Print prompt.
-        System.out.print("> ");
-        return parseInput(reader.nextLine());
-    }
-
     public Command parseInput(String inputLine) {
         String word1 = null;
         String word2 = null;

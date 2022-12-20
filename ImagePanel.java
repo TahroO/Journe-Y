@@ -1,8 +1,5 @@
-import javax.swing.JPanel;
-import java.awt.Image;
-import java.awt.Graphics;
-import java.awt.Toolkit;
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Write a description of class ImagePanel here.

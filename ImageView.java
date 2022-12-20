@@ -1,5 +1,8 @@
 import javax.swing.*;
-import javax.swing.text.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultCaret;
+import javax.swing.text.Document;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -13,7 +16,7 @@ public class ImageView {
     private final Color TEXT_BORDER_COLOR = Color.BLACK;
 
     private MusicPlayer player = new MusicPlayer();
-
+    private String currentAudioPath;
 
     JFrame frame;
     ImagePanel imagePanel;
@@ -65,10 +68,11 @@ public class ImageView {
     public void changeRoom(Command cmd, Room room) {
         // Set image and audio.
         imagePanel.setImage(room.getImagePath());
-        String audio = room.getAudioPath();
-        if (audio != null) {
+        String audio = room.getAudioPath().replaceAll("^/+", "");
+        if (audio != null && !audio.equals(currentAudioPath)) {
             player.stop();
             player.startPlaying(audio);
+            currentAudioPath = audio;
         }
         // Show description.
         setText(getCmdPrompt(cmd) + room.getLocationInfo());

@@ -1,5 +1,5 @@
-import java.util.List;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Class Room - a room in an adventure game.
@@ -27,7 +27,7 @@ public class Room {
     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
-     * "an open court yard".
+     * "an open courtyard".
      *
      * @param description The room's description.
      */
@@ -122,22 +122,6 @@ public class Room {
                     .append('.');
         }
         return output.toString();
-    }
-
-    /**
-     * Printing the location info to stdout.
-     */
-    public void printLocationInfo() {
-        System.out.println(getLocationInfo());
-        System.out.println();
-    }
-
-    /**
-     * Prints item list to stdout.
-     */
-    public void printItemInfo() {
-        System.out.println(getItemInfo());
-        System.out.println();
     }
 
 }
