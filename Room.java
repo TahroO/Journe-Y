@@ -103,7 +103,7 @@ public class Room {
     }
 
     public String getLocationInfo() {
-        StringBuilder output = new StringBuilder("You are ");
+        StringBuilder output = new StringBuilder();
         output.append(description)
                 .append('\n')
                 .append("Exits: ")
