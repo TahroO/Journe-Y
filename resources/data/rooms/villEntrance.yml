@@ -1,7 +1,7 @@
 id: villEntrance
 name: Entrance of the village
 image: resources/images/rooms/villEntrance2.png
-audio: resources/village.mp3
+audio: resources/music/village.mp3
 description: >
   emerging from the dense jungle and couldn't believe
   your eyes when seeing the ancient, lost village in front of you.

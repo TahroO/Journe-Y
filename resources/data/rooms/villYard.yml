@@ -1,7 +1,7 @@
 id: villYard
 name: a yard in the village
 image: resources/images/rooms/villYard2.png
-audio: resources/village.mp3
+audio: resources/music/village.mp3
 description: >
   walking through a strange, alien yard.
   Your attention falls to a bright blue glowing door.

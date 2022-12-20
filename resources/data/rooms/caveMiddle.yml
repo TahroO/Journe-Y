@@ -1,6 +1,6 @@
 id: caveMiddle
 name: in middle of a cave
-image: resources/images/rooms/caveMiddle.png
+image: resources/images/rooms/caveMiddle2.png
 audio: resources/music/cave.mp3
 description: >
   making your way through the mysterious cave.
