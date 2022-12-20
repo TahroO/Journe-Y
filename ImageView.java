@@ -123,7 +123,7 @@ public class ImageView {
         textPane.setForeground(Color.WHITE);
         textPane.setMargin(new Insets(10, 10, 10, 10));
         textPane.setFont(new Font(Font.MONOSPACED, Font.PLAIN, FONT_SIZE));
-        textPane.setPreferredSize(new Dimension((int) (IMAGE_WIDTH * 0.5), FONT_SIZE + 5));
+        textPane.setPreferredSize(new Dimension((int) (IMAGE_WIDTH * 0.75), FONT_SIZE + 5));
         return textPane;
     }
 
