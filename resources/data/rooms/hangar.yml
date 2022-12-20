@@ -8,7 +8,7 @@ description: >
   As you make your way through the debris-strewn floor,
   you notice a rusted spaceship in the center of this room.
 exits:
-  west: villEntrance
+  east: villEntrance
 items:
   - id: bottle
     name: a green bottle

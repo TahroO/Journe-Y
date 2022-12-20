@@ -1,7 +1,7 @@
-id: townhall
+id: townHall
 name: a townhall
 image: resources/images/rooms/townHall2.png
-audio: resources/village.mp3
+audio: resources/music/village.mp3
 description: >
   startled to come upon an ancient, abandoned town hall.
   The building is surrounded by vines and weeds,
