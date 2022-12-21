@@ -36,7 +36,8 @@ public class MapImporter {
             Item item = new Item(
                     itemData.get("id"),
                     itemData.get("name"),
-                    itemData.get("description"));
+                    itemData.get("description"),
+                    Integer.parseInt(itemData.get("weight")));
             room.putItem(itemData.get("id"), item);
         }
     }

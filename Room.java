@@ -86,22 +86,16 @@ public class Room {
         items.put(key, item);
     }
 
-    /**
-     * Removes an item from this room and returns it.
-     *
-     * @param itemKey Item ID.
-     * @return The removed item object or null.
-     */
-    public Item pickUpItem(String itemKey) {
-        // Item out of HashMap.
-        Item item = items.get(itemKey);
-        // If item exists, remove it from room.
-        if (item != null) {
-            items.remove(itemKey);
-        }
-        return item;
+    public Item getItem(String itemKey)
+    {
+        return items.get(itemKey);
     }
-
+    
+    public void removeItem(String itemKey)
+    {
+        items.remove(itemKey);
+    }
+ 
     public String getLocationInfo() {
         StringBuilder output = new StringBuilder();
         output.append(description)
@@ -119,9 +113,19 @@ public class Room {
         } else {
             List<String> descriptions = items.values().stream().map(Item::getDescription).toList();
             output.append(Util.join(descriptions))
-                    .append('.');
+                    .append(".\n\n")
+                    .append("Items to pick up: ")
+                    .append(Util.join(items.keySet().stream().toList()))
+                    .append(".");
         }
         return output.toString();
     }
 
+    public String getExitInfo() {
+        StringBuilder output = new StringBuilder();
+        output.append("Your exits are: ")
+                .append(Util.join(exits.keySet().stream().toList()))
+                .append(".");
+        return output.toString();
+    }
 }

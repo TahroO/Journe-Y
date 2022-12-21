@@ -3,17 +3,19 @@ name: a townhall
 image: resources/images/rooms/townHall2.png
 audio: resources/music/village.mp3
 description: >
-  startled to come upon an ancient, abandoned town hall.
+  After some walking, you come upon an ancient, abandoned town hall.
   The building is surrounded by vines and weeds,
   and it looks as if it is forgotten for many years.
   You notice a hidden stairway which leads into another building.
 exits:
-  south: jungleWay
-  east: villYard
+  west: villYard
+  east: villEntrance
 items:
-  - id: bottle
-    name: a green bottle
-    description: a green bottle's description text
-  - id: keycard
-    name: a key card
-    description: a key card description
+  - id: communicator
+    name: a broken communicator
+    description: a broken communicator, seems not working.
+    weight: "1"
+  - id: statue
+    name: a statue
+    description: a big stone statue showing a large tree with glowing green runes on it
+    weight: "200"

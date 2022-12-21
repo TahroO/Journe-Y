@@ -13,7 +13,9 @@ exits:
 items:
   - id: bones
     name: some old bones
-    description: they smell... old.
+    description: some old bones. Useless.
+    weight: "5"
   - id: mushroom
     name: halimash
-    description: something to eat, maybe.
+    description: some mushrooms to eat, maybe.
+    weight: "1"

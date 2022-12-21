@@ -4,10 +4,9 @@ import java.awt.event.ActionListener;
 import java.util.Map;
 
 /**
- * This class is the main class of the "World of Zuul" application.
- * "World of Zuul" is a very simple, text based adventure game.  Users
- * can walk around some scenery. That's all. It should really be extended
- * to make it more interesting!
+ * This class is the main class of "Journe:>Y".
+ * Journe:Y is a simple textbased adventure. Rooms are shown in an Image Viewer.
+ * 
  * <p>
  * To play this game, create an instance of this class and call the "play"
  * method.
@@ -16,8 +15,8 @@ import java.util.Map;
  * rooms, creates the parser and starts the game.  It also evaluates and
  * executes the commands that the parser returns.
  *
- * @author Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author chervbyn, Tahro
+ * @version 2022.12.21
  */
 
 public class Game implements ActionListener {
@@ -27,7 +26,7 @@ public class Game implements ActionListener {
     private Inventory inventory;
 
     /**
-     * Create the game and initialise its internal map.
+     * Create the game and initialise its internal map, the inventory and the image viewer.
      */
     public Game() {
         createRooms();
@@ -37,7 +36,7 @@ public class Game implements ActionListener {
     }
 
     /**
-     * Create all the rooms and link their exits together.
+     * Create all the rooms by importing yml file data and set the start room.
      */
     private void createRooms() {
         MapImporter mapImporter = new MapImporter();
@@ -77,6 +76,8 @@ public class Game implements ActionListener {
             pickUp(command);
         } else if (commandWord == CommandWords.Command.BAG) {
             bag(command);
+        } else if (commandWord == CommandWords.Command.MAP) {
+            map(command);
         }
     }
 
@@ -91,17 +92,16 @@ public class Game implements ActionListener {
     // Implementations of user commands.
 
     /**
-     * Print out some help information.
-     * Here we print some stupid, cryptic message and a list of the
-     * command words.
+     * Print out help information.
+     *
      */
     private void help() {
         CommandWords.Command helpCmd = CommandWords.Command.HELP;
         view.setText("Hi my Name is Y, your personal assistant.",
-                "I will try my best to help you.",
-                "",
-                "Your command words are:",
-                parser.getValidCommands());
+            "I will try my best to help you.",
+            "",
+            "Your command words are:",
+            parser.getValidCommands());
     }
 
     /**
@@ -119,7 +119,7 @@ public class Game implements ActionListener {
         // Try to leave current room.
         Room nextRoom = currentRoom.getExit(direction);
         if (nextRoom == null) {
-            view.setText(command, "There is no door!");
+            view.setText(command, "There is no exit!");
         } else {
             currentRoom = nextRoom;
             view.changeRoom(command, currentRoom);
@@ -134,10 +134,17 @@ public class Game implements ActionListener {
     }
 
     /**
-     * Show bag content command.
+     * Show bag content command, shows inventory.
      */
     private void bag(Command command) {
         view.setText(command, inventory.getItemInfo());
+    }
+    
+    /**
+     * Show exits of current room.
+     */
+    private void map(Command command) {
+        view.setText(command, currentRoom.getExitInfo());
     }
 
     /**
@@ -151,12 +158,17 @@ public class Game implements ActionListener {
         }
 
         String itemKey = command.getSecondWord();
-        Item item = currentRoom.pickUpItem(itemKey);
+        Item item = currentRoom.getItem(itemKey);
         if (item == null) {
             view.setText(command, "This cannot be picked up!");
         } else {
-            inventory.addItem(itemKey, item);
-            view.setText(command, "You picked up " + item.getDescription());
+            if (inventory.addItem(itemKey, item)){
+                view.setText(command, "You picked up " + item.getDescription());
+                currentRoom.removeItem(itemKey);
+            }
+            else {
+                view.setText(command, "Your bag is too full!");
+            }
         }
     }
 
@@ -177,12 +189,12 @@ public class Game implements ActionListener {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                Game game = new Game();
-                game.play();
-            }
-        });
+                @Override
+                public void run() {
+                    Game game = new Game();
+                    game.play();
+                }
+            });
     }
 
 }

@@ -3,7 +3,7 @@ name: an entrance of a cave
 image: resources/images/rooms/caveOut2.png
 audio: resources/music/jungle.mp3
 description: >
-  at an entrance of a cave.
+  You reach an entrance of a cave with a stunning view.
   The unfamiliar landscape, with its strange rock formations and unusual flora and fauna,
   is a sight unlike anything you have ever seen before.
 
@@ -13,9 +13,11 @@ exits:
   south: caveMiddle
   east: waterfall
 items:
-  - id: banana
-    name: a banana
-    description: something to eat
-  - id: keycard
-    name: a key card
-    description: a key card description
+  - id: pineapple
+    name: pineapple
+    description: a fresh pineapple
+    weight: "1"
+  - id: compass
+    name: broken compass
+    description: a rusty broken compass
+    weight: "1"

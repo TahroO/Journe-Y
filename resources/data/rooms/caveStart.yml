@@ -3,16 +3,18 @@ name: Campfire
 image: /resources/images/rooms/caveStart2.png
 audio: /resources/music/cave.mp3
 description: >
-  waking up in a cave on an ancient alien planet.
+  You wake up in a cave on an ancient alien planet.
   The unfamiliar surroundings and lack of landmarks makes it difficult to orient yourself.
-  It seems to be a good idea to look around and search for a way out of this cave.      
+  It seems to be a good idea to look around and search for a way out of this cave.  
 exits:
   north: caveMiddle
 
 items:
   - id: bottle
-    name: a red bottle
-    description: a red bottle's description text
+    name: red bottle
+    description: an empty red glass bottle
+    weight: "1"
   - id: keycard
-    name: a key card
-    description: a key card description
+    name: key card
+    description: a key card which could be important
+    weight: "1"

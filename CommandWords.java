@@ -17,7 +17,8 @@ public class CommandWords
         LOOK("look"),
         QUIT("quit"),
         HELP("help"),
-        BAG("bag");
+        BAG("bag"),
+        MAP("map");        
 
         public final String label;
 
