@@ -6,7 +6,11 @@ import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.awt.geom.Rectangle2D;
 
+/**
+ * Game image view.
+ */
 public class ImageView {
     public static final int IMAGE_WIDTH = 832;
     public static final int IMAGE_HEIGHT = 704;
@@ -22,6 +26,11 @@ public class ImageView {
     ImagePanel imagePanel;
     JEditorPane textPane;
 
+    /**
+     * Creates a new ImageView instance.
+     *
+     * @param commandListener
+     */
     public ImageView(ActionListener commandListener) {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,12 +49,24 @@ public class ImageView {
         if (cmd == null) {
             return "";
         }
-        if (cmd.isUnknown()) {
-            return "> " + cmd.getInputLine() + "\n\n";
+
+        StringBuilder output = new StringBuilder("> ");
+        if (cmd.getCommandWord() == CommandWord.UNKNOWN) {
+            output.append(cmd.getInputLine());
         }
-        return "> " + cmd.getCommandWord().label + (cmd.hasSecondWord() ? " " + cmd.getSecondWord() : "") + "\n\n";
+        else {
+            output.append(cmd.getCommandWord().label)
+                    .append(cmd.hasSecondWord() ? " " + cmd.getSecondWord() : "");
+        }
+        return  output.append("\n\n").toString();
     }
 
+    /**
+     * Sets textPane's text and adjusts its height to fit content heigt.
+     *
+     * @param cmd A command object.
+     * @param text Text to display.
+     */
     public void setText(Command cmd, String... text) {
         String command = getCmdPrompt(cmd);
         try {
@@ -53,27 +74,46 @@ public class ImageView {
             doc.remove(0, doc.getLength());
             doc.insertString(0, command + String.join("\n", text).trim(), null);
             Dimension d = textPane.getPreferredSize();
-            Rectangle r = textPane.modelToView(textPane.getDocument().getLength());
-            d.height = r.y + r.height + 3;
+            Rectangle2D r = textPane.modelToView2D(textPane.getDocument().getLength());
+            d.height = (int) Math.round(r.getY() + r.getHeight() + 3);
             textPane.setPreferredSize(d);
-        } catch (Exception e2) {
+        } catch (BadLocationException e) {
+            throw new RuntimeException(e);
         }
-
     }
 
     public void setText(String... text) {
         setText(null, text);
     }
 
-    public void changeRoom(Command cmd, Room room) {
-        // Set image and audio.
-        imagePanel.setImage(room.getImagePath());
-        String audio = room.getAudioPath().replaceAll("^/+", "");
-        if (audio != null && !audio.equals(currentAudioPath)) {
-            player.stop();
-            player.startPlaying(audio);
-            currentAudioPath = audio;
+    /**
+     * Starts playing a new audio file.
+     *
+     * @param audioPath Path to audio file.
+     */
+    private void setAudio(String audioPath) {
+        if (audioPath == null) {
+            return;
         }
+        String normalizedAudioPath = audioPath.replaceAll("^/+", "");
+        if (!normalizedAudioPath.equals(currentAudioPath)) {
+            player.stop();
+            player.startPlaying(normalizedAudioPath);
+            currentAudioPath = normalizedAudioPath;
+        }
+    }
+
+    /**
+     * Shows the new room - image, description and audio.
+     *
+     * @param cmd The "go" command object.
+     * @param room The new room.
+     */
+    public void changeRoom(Command cmd, Room room) {
+        // Set image.
+        imagePanel.setImage(room.getImagePath());
+        // Set audio.
+        setAudio(room.getAudioPath());
         // Show description.
         setText(getCmdPrompt(cmd) + room.getLocationInfo());
     }
@@ -154,7 +194,10 @@ public class ImageView {
         return imagePanel;
     }
 
-    public class BlockCaret extends DefaultCaret {
+    /**
+     * Custom block caret for JTextInput.
+     */
+    private class BlockCaret extends DefaultCaret {
         private String mark = "█";
 
         public BlockCaret() {

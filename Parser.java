@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 /**
  * This class is part of the "World of Zuul" application.
@@ -17,17 +19,11 @@ import java.util.Scanner;
  * @version 2016.02.29
  */
 public class Parser {
-    private CommandWords commands;  // holds all valid command words
-    private Scanner reader;         // source of command input
-
     /**
-     * Create a parser to read from the terminal window.
+     * Parses user input into a Command object.
+     * @param inputLine User input.
+     * @return A Command object.
      */
-    public Parser() {
-        commands = new CommandWords();
-        reader = new Scanner(System.in);
-    }
-
     public Command parseInput(String inputLine) {
         String word1 = null;
         String word2 = null;
@@ -42,13 +38,16 @@ public class Parser {
                 // Note: we just ignore the rest of the input line.
             }
         }
-        return new Command(CommandWords.Command.valueOfLabel(word1), word2, inputLine);
+        return new Command(CommandWord.valueOfLabel(word1), word2, inputLine);
     }
 
     /**
      * Returns all valid commands in one string.
      */
     public String getValidCommands() {
-        return commands.getValidCommands();
+        Stream<String> labels = Arrays.stream(CommandWord.values())
+                .filter(command -> command != CommandWord.UNKNOWN)
+                .map(CommandWord::getLabel);
+        return Util.join(labels.toList());
     }
 }

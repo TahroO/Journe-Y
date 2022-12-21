@@ -59,24 +59,19 @@ public class Game implements ActionListener {
      * @param command The command to be processed.
      */
     private void processCommand(Command command) {
-        if (command.isUnknown()) {
-            view.setText(command, "I don't know what you mean...");
+        if (command.getCommandWord() == CommandWord.UNKNOWN) {
+            view.setText(command, "I don't know what you mean ...");
             return;
         }
 
-        CommandWords.Command commandWord = command.getCommandWord();
-        if (commandWord == CommandWords.Command.HELP) {
-            help();
-        } else if (commandWord == CommandWords.Command.GO) {
-            go(command);
-        } else if (commandWord == CommandWords.Command.QUIT) {
-            quit(command);
-        } else if (commandWord == CommandWords.Command.LOOK) {
-            look(command);
-        } else if (commandWord == CommandWords.Command.PICK) {
-            pickUp(command);
-        } else if (commandWord == CommandWords.Command.BAG) {
-            bag(command);
+        CommandWord commandWord = command.getCommandWord();
+        switch (commandWord) {
+            case HELP -> help(command);
+            case GO -> go(command);
+            case QUIT -> quit(command);
+            case LOOK -> look(command);
+            case PICK -> pickUp(command);
+            case BAG -> bag(command);
         }
     }
 
@@ -95,8 +90,7 @@ public class Game implements ActionListener {
      * Here we print some stupid, cryptic message and a list of the
      * command words.
      */
-    private void help() {
-        CommandWords.Command helpCmd = CommandWords.Command.HELP;
+    private void help(Command command) {
         view.setText("Hi my Name is Y, your personal assistant.",
                 "I will try my best to help you.",
                 "",
