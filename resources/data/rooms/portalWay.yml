@@ -1,13 +1,13 @@
 id: portalWay
 name: a way to a portal
-image: resources/images/rooms/portalWay2.png
+image: resources/images/rooms/portalWay3.png
 audio: resources/music/portalWay.mp3
 description: >
   Your skin tingles when approaching the next room and the blue glow intensifies,
   enveloping you in a warm, electric embrace.
   
   
-  Now take a deep breath and push the next door open, step into the unknown!
+  Now take a deep breath and step into the unknown!
 exits:
   west: portal
   east: villYard

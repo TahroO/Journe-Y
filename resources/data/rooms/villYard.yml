@@ -1,6 +1,6 @@
 id: villYard
 name: a yard in the village
-image: resources/images/rooms/villYard2.png
+image: resources/images/rooms/villYard3.png
 audio: resources/music/village.mp3
 description: >
   You walk through a strange, alien yard.
@@ -10,9 +10,8 @@ description: >
   
   come closer...
 exits:
-  west: townHall
-  south: grave
-  east: portalWay
+  west: portalWay
+  east: townHall
 items:
   - id: display
     name: display

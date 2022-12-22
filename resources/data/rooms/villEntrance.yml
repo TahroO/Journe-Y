@@ -10,6 +10,6 @@ description: >
   and advanced technology of the civilization that had once inhabited this place.
 exits:
   south: train
-  east: townHall
-  west: hangar
+  east: hangar
+  west: townHall
 

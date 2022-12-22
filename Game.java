@@ -59,11 +59,6 @@ public class Game implements ActionListener {
      * @param command The command to be processed.
      */
     private void processCommand(Command command) {
-        if (command.getCommandWord() == CommandWord.UNKNOWN) {
-            view.setText(command, "I don't know what you mean ...");
-            return;
-        }
-
         CommandWord commandWord = command.getCommandWord();
         switch (commandWord) {
             case HELP -> help(command);
@@ -75,6 +70,7 @@ public class Game implements ActionListener {
             case MAP -> map(command);
             case JUMP -> jump(command);
             case RELOAD -> reload(command);
+            default -> view.setText(command, "I don't know what you mean ...");
         }
     }
 
