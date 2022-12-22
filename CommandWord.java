@@ -7,6 +7,7 @@ public enum CommandWord {
     BAG("bag"),
     MAP("map"),
     JUMP("jump"),
+    RELOAD("reload"),
     UNKNOWN;
 
     public final String label;

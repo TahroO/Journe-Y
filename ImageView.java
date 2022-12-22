@@ -17,10 +17,8 @@ public class ImageView {
     public static final int IMAGE_WIDTH = 832;
     public static final int IMAGE_HEIGHT = 704;
     public static final int FONT_SIZE = 14;
-
     private final Color TEXT_BACKGROUND_COLOR = new Color(0, 0, 0, 180);
     private final Color TEXT_BORDER_COLOR = Color.BLACK;
-
     private MusicPlayer player = new MusicPlayer();
     private String currentAudioPath;
 

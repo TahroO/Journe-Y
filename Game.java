@@ -74,6 +74,7 @@ public class Game implements ActionListener {
             case BAG -> bag(command);
             case MAP -> map(command);
             case JUMP -> jump(command);
+            case RELOAD -> reload(command);
         }
     }
 
@@ -138,6 +139,16 @@ public class Game implements ActionListener {
             currentRoom = nextRoom;
             view.changeRoom(command, currentRoom);
         }
+    }
+
+    /**
+     * Performs reload of YML data (for debugging).
+     */
+    private void reload(Command command) {
+        String currentRoomId = currentRoom.getId();
+        createRooms();
+        currentRoom = rooms.get(currentRoomId);
+        view.changeRoom(null, currentRoom);
     }
 
     /**
