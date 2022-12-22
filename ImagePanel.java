@@ -2,10 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Write a description of class ImagePanel here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Used to load and display an image.
  */
 public class ImagePanel extends JPanel {
     private Image image;
@@ -18,11 +15,16 @@ public class ImagePanel extends JPanel {
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param y a sample parameter for a method
-     * @return the sum of x and y
+     * Changes displayed image.
+     * @param path Image path.
      */
+    public void setImage(String path) {
+        image = Toolkit.getDefaultToolkit().createImage(getClass().getResource(path));
+        ImageUtilities.preload(image);
+        repaint();
+    }
+
+    @Override
     public void paintComponent(Graphics g) {
         if (image != null) {
             g.drawImage(image, 0, 0, this);
@@ -30,8 +32,4 @@ public class ImagePanel extends JPanel {
         super.paintComponent(g);
     }
 
-    public void setImage(String path) {
-        image = Toolkit.getDefaultToolkit().createImage(getClass().getResource(path));
-        repaint();
-    }
 }

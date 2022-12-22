@@ -198,7 +198,7 @@ public class ImageView {
     /**
      * Custom block caret for JTextInput.
      */
-    private class BlockCaret extends DefaultCaret {
+    private static class BlockCaret extends DefaultCaret {
         private String mark = "█";
 
         public BlockCaret() {
