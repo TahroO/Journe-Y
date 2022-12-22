@@ -3,14 +3,14 @@ name: cabin 42
 image: resources/images/rooms/cabin.png
 audio: resources/music/cabin.mp3
 description: >
-  As you enter a cabin of the spaceship, you are immediately struck 
+  As you enter a cabin of the spaceship, you are immediately struck
   by its sleek and futuristic design. The walls are made of a shimmering metallic material
-  that seems to shift and change color as you move around the room. 
+  that seems to shift and change color as you move around the room.
   The lighting is soft and subtle, casting a warm glow throughout the space.
   The bed is covered with soft, silky blankets and pillows that seem to adjust to a body,
   providing the perfect level of support and comfort.
-  As you explore the cabin further, you notice a number of strange 
-  and fascinating devices and gadgets. 
+  As you explore the cabin further, you notice a number of strange
+  and fascinating devices and gadgets.
 exits:
   south: locker
   east: pool

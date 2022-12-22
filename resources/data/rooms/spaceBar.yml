@@ -3,10 +3,10 @@ name: Bar in Spaceship
 image: resources/images/rooms/bar.png
 audio: resources/music/bar.mp3
 description: >
-  You visit an abandoned bar filled with holograms. 
-  As you step inside the dimly lit room, you find yourself surrounded 
-  by holographic patrons who seem oblivious to your presence. 
-  The holograms are lifelike and animated, as if they are truly enjoying 
+  You visit an abandoned bar filled with holograms.
+  As you step inside the dimly lit room, you find yourself surrounded
+  by holographic patrons who seem oblivious to your presence.
+  The holograms are lifelike and animated, as if they are truly enjoying
   their drinks and conversations, even though the bar is empty and abandoned
 exits:
   north: pool

@@ -6,9 +6,10 @@ description: >
   You walk through a strange, alien yard.
   Your attention falls to a bright blue glowing door.
   It seems to radiate a pulsing energy that calls on you,
-  beckoning you to 
+  beckoning you to ...
   
-  come closer...
+    
+  ... come closer.
 exits:
   west: portalWay
   east: townHall

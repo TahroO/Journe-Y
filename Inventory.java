@@ -19,17 +19,17 @@ public class Inventory {
 
     /**
      * Adds an item to this inventory.
-     * @param key Item ID.
+     *
+     * @param key  Item ID.
      * @param item Item object.
      */
     public boolean addItem(String key, Item item) {
-        weight = item.getWeight();     
-        if(weight <= size && size >= 0){
+        weight = item.getWeight();
+        if (weight <= size && size >= 0) {
             items.put(key, item);
             size -= weight;
             return true;
-        }     
-        else {
+        } else {
             return false;
         }
 
@@ -41,22 +41,21 @@ public class Inventory {
             output.append("Your bag is empty.");
         } else {
             output.append("Items stored in your bag: ")
-            .append(Util.join(items.keySet().stream().toList()))
-            .append('.')
-            .append(" You still have " + size + " space left ")
-            .append(".");
+                    .append(Util.join(items.keySet().stream().toList()))
+                    .append('.')
+                    .append(" You still have ")
+                    .append(size)
+                    .append(" space left.");
 
         }
         return output.toString();
     }
 
-    public int getSize()
-    {
+    public int getSize() {
         return size;
     }
 
-    public int getWeight()
-    {
+    public int getWeight() {
         return weight;
     }
 }

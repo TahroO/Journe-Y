@@ -6,9 +6,9 @@ description: >
   You stand in front of a teleporter which is a marvel of technology,
   capable of transporting beings instantaneously to yet unknown locations.
   For sure this was a popular mode of transportation for the native alien species.
-  However, the teleporter seems to have some limitations, 
+  However, the teleporter seems to have some limitations,
   as it could only transport organic material
-  within the planet's atmosphere and is not able to reach other planets or galaxies."
+  within the planet's atmosphere and is not able to reach other planets or galaxies.
 exits:
   teleport: teleport
   east: portalWay

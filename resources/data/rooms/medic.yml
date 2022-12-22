@@ -3,10 +3,10 @@ name: medic station
 image: resources/images/rooms/medic.png
 audio: resources/music/spaceship2.mp3
 description: >
-  As you enter a medic station you approach one of the tables 
-  and see a number of strange, glowing crystals on display. 
+  As you enter a medic station you approach one of the tables
+  and see a number of strange, glowing crystals on display.
   As you pick one up, you feel a tingling sensation in your hand, 
-  as if the crystal is alive and pulsing with energy. 
+  as if the crystal is alive and pulsing with energy.
   You place the crystal back down and move on to the next table, 
   where you see a series of beakers and flasks containing a variety of colorful liquids. 
   There are computers and monitors everywhere.

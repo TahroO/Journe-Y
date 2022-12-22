@@ -13,6 +13,7 @@ public class ImagePanel extends JPanel {
      */
     public void setImage(String path) {
         image = Toolkit.getDefaultToolkit().createImage(getClass().getResource(path));
+        // Wait until images loaded completely before requesting repaint.
         ImageUtilities.preload(image);
         repaint();
     }

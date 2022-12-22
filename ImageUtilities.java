@@ -1,4 +1,3 @@
-
 /**
  * The utillib library.
  * More information is available at http://www.jinchess.com/.
@@ -12,14 +11,13 @@
  * <p>
  * The utillib library is distributed in the hope that it will
  * be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser
  * General Public License for more details.
  * <p>
  * You should have received a copy of the GNU Lesser General Public License
  * along with utillib library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
-
 
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -29,17 +27,16 @@ import java.awt.image.ImageObserver;
 /**
  * Various image related utilities.
  */
-
 public class ImageUtilities {
     /**
      * A constant indicating that the loading of the image completed.
      */
-    public static final int COMPLETE = 1;
+    public static final int COMPLETED = 1;
 
     /**
-     * A constant indicating that the loading of the image errored.
+     * A constant indicating that the loading of the image failed.
      */
-    public static final int ERRORED = 2;
+    public static final int FAILED = 2;
 
     /**
      * A constant indicating that the loading of the image was aborted.
@@ -56,14 +53,16 @@ public class ImageUtilities {
      * Note that it's much more efficient to preload a lot of images at once using
      * the preload(Image []) method instead of this one.
      *
-     * @return The result of the image loading, either {@link #COMPLETE},
-     * {@link #ERRORED}, {@link #ABORTED} or {@link #INTERRUPTED}.
+     * @return The result of the image loading, either {@link #COMPLETED},
+     * {@link #FAILED}, {@link #ABORTED} or {@link #INTERRUPTED}.
+     *
+     * @see #preload(Image[], int[])
      */
     public static int preload(Image image) {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         // Check if already loaded.
         if ((toolkit.checkImage(image, -1, -1, null) & ImageObserver.ALLBITS) != 0)
-            return COMPLETE;
+            return COMPLETED;
 
         Object lock = new Object();
         synchronized (lock) {
@@ -71,11 +70,10 @@ public class ImageUtilities {
                 ImageLoadObserver observer = new ImageLoadObserver(lock);
                 toolkit.prepareImage(image, -1, -1, observer);
                 int result = toolkit.checkImage(image, -1, -1, null);
-                System.out.println("checked image");
                 if ((result & ImageObserver.ALLBITS) != 0)
-                    return COMPLETE;
+                    return COMPLETED;
                 if ((result & ImageObserver.ERROR) != 0)
-                    return ERRORED;
+                    return FAILED;
                 if ((result & ImageObserver.ABORT) != 0)
                     return ABORTED;
 
@@ -95,7 +93,7 @@ public class ImageUtilities {
      * instead.
      *
      * @return An array specifying the loading result of each image. Possible values
-     * are {@link #COMPLETE}, {@link #ERRORED} and {@link #ABORTED}.
+     * are {@link #COMPLETED}, {@link #FAILED} and {@link #ABORTED}.
      *
      * @see #preload(Image)
      */
@@ -115,11 +113,11 @@ public class ImageUtilities {
             synchronized (locks[i]) {
                 int result = toolkit.checkImage(images[i], -1, -1, null);
                 if ((result & ImageObserver.ALLBITS) != 0) {
-                    results[i] = COMPLETE;
+                    results[i] = COMPLETED;
                     continue;
                 }
                 if ((result & ImageObserver.ERROR) != 0) {
-                    results[i] = ERRORED;
+                    results[i] = FAILED;
                     continue;
                 }
                 if ((result & ImageObserver.ABORT) != 0) {
@@ -177,12 +175,12 @@ public class ImageUtilities {
         public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
             synchronized (lock) {
                 if ((infoflags & ALLBITS) != 0) {
-                    result = ImageUtilities.COMPLETE;
+                    result = ImageUtilities.COMPLETED;
                     lock.notify();
                     return false;
                 }
                 if ((infoflags & ERROR) != 0) {
-                    result = ImageUtilities.ERRORED;
+                    result = ImageUtilities.FAILED;
                     lock.notify();
                     return false;
                 }
@@ -197,7 +195,7 @@ public class ImageUtilities {
 
         /**
          * Returns the result of the image loading process or -1 if loading hasn't finished yet.
-         * Possible values are {@link ImageUtilities#COMPLETE}, {@link ImageUtilities#ERRORED}
+         * Possible values are {@link ImageUtilities#COMPLETED}, {@link ImageUtilities#FAILED}
          * and {@link ImageUtilities#ABORTED}
          */
         public int getResult() {

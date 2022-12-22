@@ -116,7 +116,7 @@ public class ImageView {
         setAudio(room.getAudioPath());
         // Show description.
         setText(getCmdPrompt(cmd) + room.getLocationInfo());
-        Logger.getLogger("Journey:Y").log(Level.ALL, "room #%s (%s)".formatted(room.getId(), room.getSourceFile()));
+        Logger.getLogger("Journey:Y").log(Level.INFO, "room #%s (%s)".formatted(room.getId(), room.getSourceFile()));
     }
 
     /**

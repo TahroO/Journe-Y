@@ -3,10 +3,10 @@ name: locker
 image: resources/images/rooms/locker.png
 audio: resources/music/spaceship3.mp3
 description: >
-  You reach a room filled with rows of metal lockers, 
-  shelves stocked with spare parts and components, and workbenches. 
-  The technical equipment found in this room ranges from simple hand tools 
-  to complex diagnostic devices and specialized machines. 
+  You reach a room filled with rows of metal lockers,
+  shelves stocked with spare parts and components, and workbenches.
+  The technical equipment found in this room ranges from simple hand tools
+  to complex diagnostic devices and specialized machines.
   It includes everything from wrenches and screwdrivers to diagnostic scanners and 3D printers.
 exits:
   west: gangway

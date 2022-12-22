@@ -144,7 +144,7 @@ public class Game implements ActionListener {
         String currentRoomId = currentRoom.getId();
         createRooms();
         currentRoom = rooms.get(currentRoomId);
-        view.changeRoom(null, currentRoom);
+        view.changeRoom(command, currentRoom);
     }
 
     /**
