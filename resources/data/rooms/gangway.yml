@@ -1,7 +1,7 @@
 id: gangway
 name: gangway
 image: resources/images/rooms/gangWay.png
-audio: resources/music/spaceship2.mp3
+audio: resources/music/spaceship3.mp3
 description: >
   As you navigate a gangway, you find yourself turning corners and encountering doors 
   that lead to unfamiliar rooms and areas of the ship. The dim lighting 
@@ -9,6 +9,10 @@ description: >
 exits:
   west: holo
   east: locker
-  south: shipHangar
+  south: spaceHangar
   north: bioReactor
-
+items:
+  - id: shoe
+    name: shoe
+    description: some magnetic shoes
+    weight: 3

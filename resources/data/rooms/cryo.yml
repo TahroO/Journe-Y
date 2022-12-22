@@ -1,0 +1,18 @@
+id: cryo
+name: cryo room
+image: resources/images/rooms/cryo.png
+audio: resources/music/spaceship2.mp3
+description: >
+  You have reached the cryo room. You approach one of the pods and see that 
+  it is filled with a thick, clear liquid that surrounds the body of the occupant, 
+  who appears to be in a deep sleep. You notice a number of monitors and screens 
+  attached to the pod, displaying various vital signs and data about the occupant's condition.
+exits:
+  west: kitchen
+  east: medic
+  south: teleport
+items:
+  - id: ice
+    name: ice
+    description: a large cup of peanut butter ice cream
+    weight: 5

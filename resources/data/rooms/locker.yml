@@ -1,7 +1,7 @@
 id: locker
 name: locker
 image: resources/images/rooms/locker.png
-audio: resources/music/spaceship.mp3
+audio: resources/music/spaceship3.mp3
 description: >
   You reach a room filled with rows of metal lockers, 
   shelves stocked with spare parts and components, and workbenches. 

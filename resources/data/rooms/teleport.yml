@@ -3,11 +3,11 @@ name: a teleport room
 image: resources/images/rooms/teleport2.png
 audio: resources/music/spaceship2.mp3
 description: >
-  You materialize in a Teleport room with a series of controls and screens lining the walls. 
+  You materialize in a Teleport room with a series of controls and screens lining the walls.
   In the center of the room is a raised platform, surrounded by a shimmering blue energy field.
   You are greeted by the ship's AI. "The teleport system uses advanced quantum entanglement
   technology to transfer your physical body to any location instantaneously."
-  You realize that your now inside a spaceship, there might be various areas to explore, 
+  You realize that your now inside a spaceship, there might be various areas to explore,
   such as the bridge, living quarters or scientific laboratories.
 exits:
   teleport: portal

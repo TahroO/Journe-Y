@@ -1,0 +1,22 @@
+id: machineRoom
+name: machineRoom
+image: resources/images/rooms/machineRoom.png
+audio: resources/music/waterfall.mp3
+description: >
+  You end up inside a machine room a bustling, high-tech space filled 
+  with all manner of machinery and equipment. The walls are lined with
+  banks of computers, control panels, and screens, displaying 
+  a constant stream of data and information. Some of the devices look
+  like they are straight out of a science fiction movie.
+exits:
+  north: holo
+  east: spaceHangar
+items:
+  - id: toolkit
+    name: toolkit
+    description: a tool kit with various tools for repairing or maintaining the ship
+    weight: 8
+  - id: scanner
+    name: scanner
+    description: a handheld scanner for analyzing materials
+    weight: 5

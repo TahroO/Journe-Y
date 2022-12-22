@@ -1,0 +1,17 @@
+id: launchpad
+name: launchpad
+image: resources/images/rooms/launchPad.png
+audio: resources/music/spaceship3.mp3
+description: >
+  You reach a launch pad, a vast, cavernous room filled with 
+  strange and exotic spacecraft of all shapes and sizes. 
+  Some of the ships are sleek and streamlined, designed for high-speed travel 
+  through the cosmos, while others are rugged and utilitarian, 
+  built for endurance and durability.
+exits:
+  west: spaceHangar
+items:
+  - id: oxygen
+    name: A spare oxygen tank
+    description: a spare oxygen tank for use in case of a life support failure
+    weight: 10

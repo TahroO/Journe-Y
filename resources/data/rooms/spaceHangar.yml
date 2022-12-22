@@ -1,0 +1,22 @@
+id: spaceHangar
+name: ships hangar
+image: resources/images/rooms/hangarShip.png
+audio: resources/music/spaceship3.mp3
+description: >
+  Robotic engineers bustling around in a hangar, working to keep 
+  everything running smoothly. They monitor the machines and systems, 
+  check readouts and diagnostics, and make adjustments and repairs as needed. 
+  The air is filled with the sounds of machinery and the faint hum of energy.
+exits:
+  north: gangWay
+  east: launchPad
+  west: machineRoom
+items:
+  - id: battery
+    name: battery
+    description: an empty battery
+    weight: 2
+  - id: ring
+    name: ring
+    description: a ring made from green looming metal
+    weight: 1

@@ -1,0 +1,22 @@
+id: pool
+name: pool
+image: resources/images/rooms/pool.png
+audio: resources/music/pool.mp3
+description: >
+  Your are surprised by the sight of a sparkling pool. 
+  The pool is located on top of the ship, surrounded by large windows 
+  that provide a stunning view of the stars and planets outside. 
+  The water is crystal clear and inviting, and the pool is filled 
+  with a special type of chlorine that is safe for use in outer space.
+exits:
+  south: bar
+  west: cabin
+items:
+  - id: towel
+    name: a towel
+    description: a towel
+    weight: 2
+  - id: duck
+    name: rubber duck
+    description: a darth vader rubber duck
+    weight: 3

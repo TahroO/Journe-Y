@@ -1,0 +1,28 @@
+id: reactor
+name: bio reactor
+image: resources/images/rooms/bioReactor.png
+audio: resources/music/spaceship4.mp3
+description: >
+  The familiar AI Voice speaks again:
+  
+  
+  “The bio reactor is a complex system that is responsible 
+  for generating and sustaining the life support systems on the ship. 
+  It uses a combination of advanced biotechnology and artificial intelligence 
+  to convert organic matter into energy, oxygen, and other essential resources.”
+  
+  
+  You notice a series of monitors and screens that display a constant stream of data 
+  and information about the reactor's performance and status.
+exits:
+  west: medic
+  south: gangway
+items:
+  - id: knife
+    name: multi-purpose utility knife
+    description: a multi-purpose utility knife
+    weight: 5
+  - id: potion
+    name: health potion
+    description: a green mixture inside a bottle.
+    weight: 2

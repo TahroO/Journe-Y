@@ -1,0 +1,22 @@
+id: meeting
+name: meeting room
+image: resources/images/rooms/meetingRoom.png
+audio: resources/music/commando.mp3
+description: >
+  You run into some kind of meeting room, a spacious, open area 
+  with a high ceiling and large windows that provide stunning views of the outside. 
+  The room is filled with a variety of comfortable chairs, each one designed 
+  to accommodate the zero gravity during long space rides.
+  
+  
+  You take a seat in one of the chairs and sink into the soft cushions, 
+  feeling a sense of weightlessness and freedom.
+exits:
+  west: bridge
+  east: cpu
+  south: cryo
+items:
+  - id: blanket
+    name: blanket
+    description: a metallic shimmering blanket
+    weight: 5

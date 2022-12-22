@@ -1,19 +1,24 @@
 id: kitchen
-name: a kitchen
-image: resources/images/rooms/4167399110_waterfall__cyberpunk__HQ__unreal_engine__jungle.png
-audio: resources/test.mp3
+name: kitchen
+image: resources/images/rooms/kitchen.png
+audio: resources/music/spaceship2.mp3
 description: >
-  description of the kitchen
-  2nd line of kitchen description
+  As you enter the kitchen, you are immediately struck by the unfamiliar smells 
+  that fill the room. The kitchen is a large, open space filled with a variety 
+  of strange and exotic cooking equipment and ingredients.
+  You approach one of the counters and see a number of strange looking fruits and vegetables
+  laid out in a neat row. You pick up one of the fruits and examine it closely, 
+  noting its spiky exterior and the pungent aroma that wafts from it. 
+  You place the fruit back down and move on to the next counter, where you see a variety of
+  cooking pots and pans bubbling with a variety of exotic-looking dishes.
 exits:
-  south: hangar
-  east: toilet
+  east: cryo
 items:
-  - id: bottle
-    name: a green bottle
-    description: a green bottle's description text
-    weight: 10
-  - id: keycard
-    name: a key card
-    description: a key card description
-    weight: 10
+  - id: elobmarak
+    name: karambole
+    description: a star like formed blue fruit
+    weight: 3
+  - id: egg
+    name: egg
+    description: a slimy large egg
+    weight: 5
