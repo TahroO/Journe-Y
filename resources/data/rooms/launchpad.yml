@@ -1,4 +1,4 @@
-id: launchpad
+id: launchPad
 name: launchpad
 image: resources/images/rooms/launchPad.png
 audio: resources/music/spaceship3.mp3
@@ -10,6 +10,7 @@ description: >
   built for endurance and durability.
 exits:
   west: spaceHangar
+  north: locker
 items:
   - id: oxygen
     name: A spare oxygen tank

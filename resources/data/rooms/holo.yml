@@ -12,8 +12,8 @@ description: >
   virtual worlds, ranging from exotic locations on distant planets
   to historical events and fictional scenarios.”
 exits:
-  west: teleport
-  east: gangway
+  west: gangway
+  east: teleport
   north: medic
 items:
   - id: holo
