@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * This class is the main class of "Journe:>Y".
  * Journe:Y is a simple textbased adventure. Rooms are shown in an Image Viewer.
- * 
+ *
  * <p>
  * To play this game, create an instance of this class and call the "play"
  * method.
@@ -58,26 +58,20 @@ public class Game implements ActionListener {
      * @param command The command to be processed.
      */
     private void processCommand(Command command) {
-        if (command.isUnknown()) {
-            view.setText(command, "I don't know what you mean...");
+        if (command.getCommandWord() == CommandWord.UNKNOWN) {
+            view.setText(command, "I don't know what you mean ...");
             return;
         }
 
-        CommandWords.Command commandWord = command.getCommandWord();
-        if (commandWord == CommandWords.Command.HELP) {
-            help();
-        } else if (commandWord == CommandWords.Command.GO) {
-            go(command);
-        } else if (commandWord == CommandWords.Command.QUIT) {
-            quit(command);
-        } else if (commandWord == CommandWords.Command.LOOK) {
-            look(command);
-        } else if (commandWord == CommandWords.Command.PICK) {
-            pickUp(command);
-        } else if (commandWord == CommandWords.Command.BAG) {
-            bag(command);
-        } else if (commandWord == CommandWords.Command.MAP) {
-            map(command);
+        CommandWord commandWord = command.getCommandWord();
+        switch (commandWord) {
+            case HELP -> help(command);
+            case GO -> go(command);
+            case QUIT -> quit(command);
+            case LOOK -> look(command);
+            case PICK -> pickUp(command);
+            case BAG -> bag(command);
+            case MAP -> map(command);
         }
     }
 
@@ -93,15 +87,13 @@ public class Game implements ActionListener {
 
     /**
      * Print out help information.
-     *
      */
-    private void help() {
-        CommandWords.Command helpCmd = CommandWords.Command.HELP;
+    private void help(Command command) {
         view.setText("Hi my Name is Y, your personal assistant.",
-            "I will try my best to help you.",
-            "",
-            "Your command words are:",
-            parser.getValidCommands());
+                "I will try my best to help you.",
+                "",
+                "Your command words are:",
+                parser.getValidCommands());
     }
 
     /**
@@ -139,7 +131,7 @@ public class Game implements ActionListener {
     private void bag(Command command) {
         view.setText(command, inventory.getItemInfo());
     }
-    
+
     /**
      * Show exits of current room.
      */
@@ -162,11 +154,10 @@ public class Game implements ActionListener {
         if (item == null) {
             view.setText(command, "This cannot be picked up!");
         } else {
-            if (inventory.addItem(itemKey, item)){
+            if (inventory.addItem(itemKey, item)) {
                 view.setText(command, "You picked up " + item.getDescription());
                 currentRoom.removeItem(itemKey);
-            }
-            else {
+            } else {
                 view.setText(command, "Your bag is too full!");
             }
         }
@@ -189,12 +180,12 @@ public class Game implements ActionListener {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    Game game = new Game();
-                    game.play();
-                }
-            });
+            @Override
+            public void run() {
+                Game game = new Game();
+                game.play();
+            }
+        });
     }
 
 }
