@@ -17,8 +17,8 @@ items:
   - id: communicator
     name: communicator
     description: a red blinking communicator device
-    weight: "3"
+    weight: 3
   - id: flashlight
     name: flashlight
     description: a flashlight
-    weight: "3"
+    weight: 3

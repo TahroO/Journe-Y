@@ -16,8 +16,8 @@ items:
   - id: pineapple
     name: pineapple
     description: a fresh pineapple
-    weight: "1"
+    weight: 1
   - id: compass
     name: broken compass
     description: a rusty broken compass
-    weight: "1"
+    weight: 1

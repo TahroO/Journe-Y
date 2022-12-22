@@ -13,8 +13,8 @@ items:
   - id: stone
     name: glowing stone
     description: a glowing stone...which glows
-    weight: "5"
+    weight: 5
   - id: banana
     name: banana
     description: a ripe banana
-    weight: "1"
+    weight: 1

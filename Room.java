@@ -23,6 +23,7 @@ public class Room {
     private String audioPath;
     private HashMap<String, Room> exits;
     private HashMap<String, Item> items;
+    private String yamlFile;
 
     /**
      * Create a room described "description". Initially, it has
@@ -63,6 +64,14 @@ public class Room {
 
     public String getAudioPath() {
         return audioPath;
+    }
+
+    public void setSourceFile(String yamlFile) {
+        this.yamlFile = yamlFile;
+    }
+
+    public String getSourceFile() {
+        return yamlFile;
     }
 
     /**

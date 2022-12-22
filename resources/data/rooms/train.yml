@@ -17,8 +17,8 @@ items:
   - id: nails
     name: rusty nails
     description: old rusty nails, maybe usefull.
-    weight: "3"
+    weight: 3
   - id: ticket
     name: old train ticket
     description: "choo, choo, tschakka, tschakka, choo, choo!"
-    weight: "1"
+    weight: 1

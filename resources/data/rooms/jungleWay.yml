@@ -18,4 +18,4 @@ items:
   - id: chestnut
     name: chestnut
     description: a green looming chestnut
-    weight: "1"
+    weight: 1

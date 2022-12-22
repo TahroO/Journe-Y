@@ -15,8 +15,8 @@ items:
   - id: shot
     name: a shot glas
     description: a shot glas
-    weight: "2"
+    weight: 2
   - id: cigarette
     name: cigarette
     description: a package of cigarettes
-    weight: "20"
+    weight: 20

@@ -17,12 +17,12 @@ items:
   - id: screwdriver
     name: screwdriver
     description: a screwdriver
-    weight: "2"
+    weight: 2
   - id: printer
     name: printer
     description: a 3D Printer
-    weight: "10"
+    weight: 10
   - id: scanner
     name: scanner
     description: a diagnostic scanner
-    weight: "5"
+    weight: 5

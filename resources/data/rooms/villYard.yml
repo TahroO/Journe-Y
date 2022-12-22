@@ -17,8 +17,8 @@ items:
   - id: display
     name: display
     description: a handy display showing some characters looking like numbers
-    weight: "5"
+    weight: 5
   - id: apple
     name: apple
     description: a tasty green apple
-    weight: "1"
+    weight: 1

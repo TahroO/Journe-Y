@@ -6,6 +6,7 @@ public enum CommandWord {
     HELP("help"),
     BAG("bag"),
     MAP("map"),
+    JUMP("jump"),
     UNKNOWN;
 
     public final String label;

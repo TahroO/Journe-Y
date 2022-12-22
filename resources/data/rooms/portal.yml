@@ -16,8 +16,8 @@ items:
   - id: remote
     name: remote control
     description: a blinking remote control to activate something
-    weight: "3"
+    weight: 3
   - id: teleport
     name: teleporter pad
     description: a teleporting machine
-    weight: "10"
+    weight: 10

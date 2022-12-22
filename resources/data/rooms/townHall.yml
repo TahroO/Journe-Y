@@ -14,8 +14,8 @@ items:
   - id: communicator
     name: a broken communicator
     description: a broken communicator, seems not working.
-    weight: "1"
+    weight: 1
   - id: statue
     name: a statue
     description: a big stone statue showing a large tree with glowing green runes on it
-    weight: "200"
+    weight: 200

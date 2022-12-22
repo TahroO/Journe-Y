@@ -13,8 +13,8 @@ items:
   - id: bottle
     name: red bottle
     description: an empty red glass bottle
-    weight: "1"
+    weight: 1
   - id: keycard
     name: key card
     description: a key card which could be important
-    weight: "1"
+    weight: 1

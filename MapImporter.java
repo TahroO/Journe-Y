@@ -3,6 +3,7 @@ import org.yaml.snakeyaml.Yaml;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -14,7 +15,7 @@ public class MapImporter {
 
     public Map<String, Room> getRooms() {
         try {
-            List<Map> data = getData(DATA_DIR);
+            List<Map<String, Object>> data = getData(DATA_DIR);
             rooms = data.stream().map(MapImporter::createRoom)
                     .collect(Collectors.toMap(Room::getId, Function.identity(), (prev, next) -> next, HashMap::new));
             data.stream().forEach(this::putItems);
@@ -25,20 +26,20 @@ public class MapImporter {
         return rooms;
     }
 
-    private void putItems(Map data) {
-        List<Map<String, String>> items = (List<Map<String, String>>) data.get("items");
+    private void putItems(Map<String, Object> data) {
+        List<Map<String, Object>> items = (List<Map<String, Object>>) data.get("items");
         if (items == null) {
             return;
         }
 
         Room room = rooms.get(data.get("id"));
-        for (Map<String, String> itemData : items) {
+        for (Map<String, Object> itemData : items) {
             Item item = new Item(
-                    itemData.get("id"),
-                    itemData.get("name"),
-                    itemData.get("description"),
-                    Integer.parseInt(itemData.get("weight")));
-            room.putItem(itemData.get("id"), item);
+                    (String) itemData.get("id"),
+                    (String) itemData.get("name"),
+                    (String) itemData.get("description"),
+                    (int) itemData.get("weight"));
+            room.putItem((String) itemData.get("id"), item);
         }
     }
 
@@ -51,21 +52,25 @@ public class MapImporter {
     }
 
     private static Room createRoom(Map data) {
-        return new Room(
+        Room newRoom = new Room(
                 (String) data.get("id"),
                 (String) data.get("name"),
                 (String) data.get("description"),
                 (String) data.get("image"),
                 (String) data.get("audio"));
+        newRoom.setSourceFile(data.get("_yaml").toString());
+        return newRoom;
     }
 
-    private List<Map> getData(String dataDir) throws IOException {
+    private List<Map<String, Object>> getData(String dataDir) throws IOException {
         Yaml yaml = new Yaml();
         return Util.readFolder(dataDir)
                 .filter(Files::isRegularFile)
                 .map(path -> {
                     try {
-                        return yaml.loadAs(Files.newInputStream(path), Map.class);
+                        LinkedHashMap<String, Object> m = (LinkedHashMap<String, Object>) yaml.loadAs(Files.newInputStream(path), Map.class);
+                        m.put("_yaml", path.getFileName());
+                        return m;
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }

@@ -15,8 +15,8 @@ items:
   - id: cpu
     name: cpu
     description: a boxed cpu unit
-    weight: "2"
+    weight: 2
   - id: cent
     name: a coin
     description: an old coin
-    weight: "1"
+    weight: 1

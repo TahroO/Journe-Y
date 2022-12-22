@@ -22,6 +22,7 @@ import java.util.Map;
 public class Game implements ActionListener {
     private Parser parser;
     private Room currentRoom;
+    private Map<String, Room> rooms;
     private ImageView view;
     private Inventory inventory;
 
@@ -40,7 +41,7 @@ public class Game implements ActionListener {
      */
     private void createRooms() {
         MapImporter mapImporter = new MapImporter();
-        Map<String, Room> rooms = mapImporter.getRooms();
+        rooms = mapImporter.getRooms();
         currentRoom = rooms.get("start");
     }
 
@@ -72,6 +73,7 @@ public class Game implements ActionListener {
             case PICK -> pickUp(command);
             case BAG -> bag(command);
             case MAP -> map(command);
+            case JUMP -> jump(command);
         }
     }
 
@@ -112,6 +114,26 @@ public class Game implements ActionListener {
         Room nextRoom = currentRoom.getExit(direction);
         if (nextRoom == null) {
             view.setText(command, "There is no exit!");
+        } else {
+            currentRoom = nextRoom;
+            view.changeRoom(command, currentRoom);
+        }
+    }
+
+    /**
+     * Performs jump to a specific room (for debugging).
+     */
+    private void jump(Command command) {
+        if (!command.hasSecondWord()) {
+            // If there is no second word, we don't know where to go...
+            view.setText(command, "Jump where?");
+            return;
+        }
+
+        String roomId = command.getSecondWord();
+        Room nextRoom = rooms.get(roomId);
+        if (nextRoom == null) {
+            view.setText(command, "This room doesn't exist!");
         } else {
             currentRoom = nextRoom;
             view.changeRoom(command, currentRoom);

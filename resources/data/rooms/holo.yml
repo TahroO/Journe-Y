@@ -19,5 +19,5 @@ items:
   - id: holo
     name: holo statue
     description: a miniature holographic statue of yoda
-    weight: "3"
+    weight: 3
 

@@ -14,8 +14,8 @@ items:
   - id: fish
     name: a purple fish
     description: a purple fresh looking fish
-    weight: "1"
+    weight: 1
   - id: rod
     name: old fishing rod
     description: an old fishing rod
-    weight: "5"
+    weight: 5

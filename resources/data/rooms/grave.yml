@@ -14,8 +14,8 @@ items:
   - id: bones
     name: some old bones
     description: some old bones. Useless.
-    weight: "5"
+    weight: 5
   - id: mushroom
     name: halimash
     description: some mushrooms to eat, maybe.
-    weight: "1"
+    weight: 1

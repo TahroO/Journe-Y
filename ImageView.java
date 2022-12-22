@@ -7,6 +7,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.geom.Rectangle2D;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Game image view.
@@ -116,6 +118,7 @@ public class ImageView {
         setAudio(room.getAudioPath());
         // Show description.
         setText(getCmdPrompt(cmd) + room.getLocationInfo());
+        Logger.getLogger("Journey:Y").log(Level.INFO, "room #%s (%s)".formatted(room.getId(), room.getSourceFile()));
     }
 
     /**
