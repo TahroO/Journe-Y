@@ -7,8 +7,8 @@ description: >
   that lead to unfamiliar rooms and areas of the ship. The dim lighting 
   and industrial design of the corridors may add to your sense of unease and uncertainty.
 exits:
-  west: holo
-  east: locker
+  west: locker
+  east: holo
   south: spaceHangar
   north: bioReactor
 items:
