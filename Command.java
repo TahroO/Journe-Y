@@ -19,9 +19,9 @@
 
 public class Command
 {
-    private CommandWords.Command commandWord;
-    private String secondWord;
-    private String inputLine;
+    private final CommandWord commandWord;
+    private final String secondWord;
+    private final String inputLine;
 
     /**
      * Create a command object. First and second word must be supplied, but
@@ -30,7 +30,7 @@ public class Command
      *                  was not recognised.
      * @param secondWord The second word of the command.
      */
-    public Command(CommandWords.Command firstWord, String secondWord, String inputLine)
+    public Command(CommandWord firstWord, String secondWord, String inputLine)
     {
         this.inputLine = inputLine;
         this.commandWord = firstWord;
@@ -42,7 +42,7 @@ public class Command
      * command was not understood, the result is null.
      * @return The command word.
      */
-    public CommandWords.Command getCommandWord()
+    public CommandWord getCommandWord()
     {
         return commandWord;
     }
@@ -57,14 +57,6 @@ public class Command
     }
 
     /**
-     * @return true if this command was not understood.
-     */
-    public boolean isUnknown()
-    {
-        return (commandWord == null);
-    }
-
-    /**
      * @return true if the command has a second word.
      */
     public boolean hasSecondWord()
@@ -72,6 +64,10 @@ public class Command
         return (secondWord != null);
     }
 
+    /**
+     * Gets the whole user input string.
+     * @return
+     */
     public String getInputLine() {
         return inputLine;
     }
