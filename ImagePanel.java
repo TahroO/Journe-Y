@@ -8,13 +8,6 @@ public class ImagePanel extends JPanel {
     private Image image;
 
     /**
-     * Constructor for objects of class ImagePanel
-     */
-    public ImagePanel() {
-        image = Toolkit.getDefaultToolkit().createImage("resources/images/rooms/4167399110_waterfall__cyberpunk__HQ__unreal_engine__jungle.png");
-    }
-
-    /**
      * Changes displayed image.
      * @param path Image path.
      */
@@ -26,6 +19,8 @@ public class ImagePanel extends JPanel {
 
     @Override
     public void paintComponent(Graphics g) {
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, getWidth(), getWidth());
         if (image != null) {
             g.drawImage(image, 0, 0, this);
         }

@@ -58,12 +58,10 @@ public class ImageUtilities {
      *
      * @return The result of the image loading, either {@link #COMPLETE},
      * {@link #ERRORED}, {@link #ABORTED} or {@link #INTERRUPTED}.
-     *
-     * @see #preload(java.awt.Image [], int [])
      */
     public static int preload(Image image) {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        // Check if already loaded
+        // Check if already loaded.
         if ((toolkit.checkImage(image, -1, -1, null) & ImageObserver.ALLBITS) != 0)
             return COMPLETE;
 
