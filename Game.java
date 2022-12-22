@@ -59,11 +59,6 @@ public class Game implements ActionListener {
      * @param command The command to be processed.
      */
     private void processCommand(Command command) {
-        if (command.getCommandWord() == CommandWord.UNKNOWN) {
-            view.setText(command, "I don't know what you mean ...");
-            return;
-        }
-
         CommandWord commandWord = command.getCommandWord();
         switch (commandWord) {
             case HELP -> help(command);
@@ -74,6 +69,7 @@ public class Game implements ActionListener {
             case BAG -> bag(command);
             case MAP -> map(command);
             case JUMP -> jump(command);
+            default -> view.setText(command, "I don't know what you mean ...");
         }
     }
 
@@ -92,10 +88,10 @@ public class Game implements ActionListener {
      */
     private void help(Command command) {
         view.setText("Hi my Name is Y, your personal assistant.",
-                "I will try my best to help you.",
-                "",
-                "Your command words are:",
-                parser.getValidCommands());
+            "I will try my best to help you.",
+            "",
+            "Your command words are:",
+            parser.getValidCommands());
     }
 
     /**
@@ -202,12 +198,12 @@ public class Game implements ActionListener {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                Game game = new Game();
-                game.play();
-            }
-        });
+                @Override
+                public void run() {
+                    Game game = new Game();
+                    game.play();
+                }
+            });
     }
 
 }
