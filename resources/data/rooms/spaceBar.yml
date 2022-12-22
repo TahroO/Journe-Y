@@ -10,7 +10,7 @@ description: >
   their drinks and conversations, even though the bar is empty and abandoned
 exits:
   north: pool
-  east: locker
+  west: locker
 items:
   - id: shot
     name: a shot glas
