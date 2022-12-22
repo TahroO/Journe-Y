@@ -1,0 +1,23 @@
+id: holo
+name: a holo deck
+image: resources/images/rooms/holo.png
+audio: resources/music/spaceship2.mp3
+description: >
+  The ship’s AI continous. 
+  
+  
+  “The holo deck is a virtual reality simulation room that allows
+  users to experience a wide range of environments and activities. 
+  The holo deck utilizes advanced technology to create highly realistic and immersive 
+  virtual worlds, ranging from exotic locations on distant planets 
+  to historical events and fictional scenarios.”
+exits:
+  west: teleport
+  east: gangway
+  north: medic
+items:
+  - id: holo
+    name: holo statue
+    description: a miniature holographic statue of yoda
+    weight: "3"
+

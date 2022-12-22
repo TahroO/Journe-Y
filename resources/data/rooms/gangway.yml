@@ -1,0 +1,14 @@
+id: gangway
+name: gangway
+image: resources/images/rooms/gangWay.png
+audio: resources/music/spaceship2.mp3
+description: >
+  As you navigate a gangway, you find yourself turning corners and encountering doors 
+  that lead to unfamiliar rooms and areas of the ship. The dim lighting 
+  and industrial design of the corridors may add to your sense of unease and uncertainty.
+exits:
+  west: holo
+  east: locker
+  south: shipHangar
+  north: bioReactor
+
