@@ -1,0 +1,32 @@
+id: credits
+name: credits
+image: resources/images/rooms/credit.png
+audio: resources/music/credits.mp3
+description: >
+  Journe:Y is a java project
+  chervbyn & Tahro
+  2022.12.22
+  
+  
+  Pictures where created via Text Prompts with Stable Diffusion AI
+  
+  
+  https://beta.dreamstudio.ai/
+  
+  
+  Text was created via Text Prompts with ChatGPT3 AI
+  
+  
+  https://openai.com/blog/chatgpt/
+  
+  
+  Music royalty free from 
+  
+  
+  https://pixabay.com
+  
+  
+ 
+  Thank you for playing.
+exits:
+  start: start
