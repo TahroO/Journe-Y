@@ -1,6 +1,6 @@
 id: villEntrance
 name: Entrance of the village
-image: resources/images/rooms/villEntrance2.png
+image: resources/images/rooms/villEntrance1.png
 audio: resources/music/village.mp3
 description: >
   You emerging from the dense jungle and couldn't believe
@@ -10,6 +10,6 @@ description: >
   and advanced technology of the civilization that had once inhabited this place.
 exits:
   south: train
-  east: hangar
-  west: townHall
+  east: townHall
+  west: hangar
 
