@@ -3,9 +3,9 @@ name: bridge
 image: resources/images/rooms/bridge.png
 audio: resources/music/commando.mp3
 description: >
-  You step into the cockpit of the spaceship and realize 
-  that the autopilot system efficiently hinders the ship starting routine. 
-  The screens and monitors in front of you display a variety of data and information 
+  You step into the cockpit of the spaceship and realize
+  that the autopilot system efficiently hinders the ship starting routine.
+  The screens and monitors in front of you display a variety of data and information
   about the ship's status. All of them are showing red blinking signs.
 exits:
   east: meeting

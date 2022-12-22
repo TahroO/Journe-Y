@@ -184,7 +184,7 @@ public class Game implements ActionListener {
             view.setText(command, "This cannot be picked up!");
         } else {
             if (inventory.addItem(itemKey, item)) {
-                view.setText(command, "You picked up " + item.getDescription());
+                view.setText(command, "You picked up " + item.getDescription() + ".");
                 currentRoom.removeItem(itemKey);
             } else {
                 view.setText(command, "Your bag is too full!");

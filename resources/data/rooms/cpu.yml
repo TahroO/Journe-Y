@@ -3,14 +3,14 @@ name: cpu
 image: resources/images/rooms/cpu.png
 audio: resources/music/commando.mp3
 description: >
-  You find yourself inside the main processor server room of the spaceship. 
-  The hum of complex machinery fills the air. 
-  Rows of sleek, metallic servers line the walls, their glowing screens flickering 
-  with data and code. The room is dimly lit, with only a few strategically 
+  You find yourself inside the main processor server room of the spaceship.
+  The hum of complex machinery fills the air.
+  Rows of sleek, metallic servers line the walls, their glowing screens flickering
+  with data and code. The room is dimly lit, with only a few strategically
   placed spotlights illuminating the rows of servers.
   
-  This is the heart of the ship's computing system, responsible for managing all 
-  of the ship's functions and systems. It is constantly processing and analyzing data, 
+  This is the heart of the ship's computing system, responsible for managing all
+  of the ship's functions and systems. It is constantly processing and analyzing data,
   making calculations and decisions at lightning fast speeds.
 exits:
   west: meeting

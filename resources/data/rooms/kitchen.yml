@@ -3,12 +3,12 @@ name: kitchen
 image: resources/images/rooms/kitchen.png
 audio: resources/music/spaceship2.mp3
 description: >
-  As you enter the kitchen, you are immediately struck by the unfamiliar smells 
-  that fill the room. The kitchen is a large, open space filled with a variety 
+  As you enter the kitchen, you are immediately struck by the unfamiliar smells
+  that fill the room. The kitchen is a large, open space filled with a variety
   of strange and exotic cooking equipment and ingredients.
   You approach one of the counters and see a number of strange looking fruits and vegetables
-  laid out in a neat row. You pick up one of the fruits and examine it closely, 
-  noting its spiky exterior and the pungent aroma that wafts from it. 
+  laid out in a neat row. You pick up one of the fruits and examine it closely,
+  noting its spiky exterior and the pungent aroma that wafts from it.
   You place the fruit back down and move on to the next counter, where you see a variety of
   cooking pots and pans bubbling with a variety of exotic-looking dishes.
 exits:
