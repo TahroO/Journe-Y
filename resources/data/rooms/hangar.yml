@@ -1,6 +1,6 @@
 id: hangar
 name: a hangar
-image: resources/images/rooms/hangar3.jpg
+image: resources/images/rooms/hangar3.png
 audio: resources/music/jungle.mp3
 description: >
   ending up in an abandoned space hangar,
@@ -10,11 +10,11 @@ description: >
 exits:
   east: villEntrance
 items:
-  - id: bottle
-    name: a green bottle
-    description: a green bottle's description text
+  - id: scrap
+    name: scrap
+    description: some scrap parts of a spaceship
     weight: 10
-  - id: keycard
-    name: a key card
-    description: a key card description
-    weight: 10
+  - id: key
+    name: a key
+    description: a mysterious key
+    weight: 1

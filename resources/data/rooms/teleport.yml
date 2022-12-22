@@ -12,7 +12,7 @@ description: >
 exits:
   teleport: portal
   north: cryo
-  west: east
+  west: holo
 items:
   - id: communicator
     name: communicator
