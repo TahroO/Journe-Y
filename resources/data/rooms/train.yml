@@ -10,8 +10,8 @@ description: >
   
   You have to decide which tracks you will follow.
 exits:
-  west: waterfall
-  east: jungleWay
+  west: jungleWay
+  east: waterfall
   north: villEntrance
 items:
   - id: nails

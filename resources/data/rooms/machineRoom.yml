@@ -9,7 +9,6 @@ description: >
   a constant stream of data and information. Some of the devices look
   like they are straight out of a science fiction movie.
 exits:
-  north: holo
   east: spaceHangar
 items:
   - id: toolkit

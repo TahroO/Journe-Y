@@ -11,7 +11,7 @@ description: >
   The jungle is waiting for you!
 exits:
   south: caveMiddle
-  east: waterfall
+  west: waterfall
 items:
   - id: pineapple
     name: pineapple

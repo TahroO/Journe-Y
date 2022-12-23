@@ -11,6 +11,7 @@ exits:
   west: kitchen
   east: medic
   south: teleport
+  north: meeting
 items:
   - id: ice
     name: ice

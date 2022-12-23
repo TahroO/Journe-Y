@@ -8,8 +8,8 @@ description: >
   The sound of the rushing water fills the air,
   echoing through the surrounding ancient alien trees.
 exits:
-  west: caveOut
-  east: train
+  west: train
+  east: caveOut
 items:
   - id: fish
     name: a purple fish
