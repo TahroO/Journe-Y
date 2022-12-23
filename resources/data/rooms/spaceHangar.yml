@@ -8,7 +8,7 @@ description: >
   check readouts and diagnostics, and make adjustments and repairs as needed. 
   The air is filled with the sounds of machinery and the faint hum of energy.
 exits:
-  north: gangWay
+  north: gangway
   east: launchPad
   west: machineRoom
 items:

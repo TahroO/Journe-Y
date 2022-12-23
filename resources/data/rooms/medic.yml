@@ -1,7 +1,7 @@
 id: medic
 name: medic station
 image: resources/images/rooms/medic.png
-audio: resources/music/spaceship2.mp3
+audio: resources/music/spaceship4.mp3
 description: >
   As you enter a medic station you approach one of the tables
   and see a number of strange, glowing crystals on display.
