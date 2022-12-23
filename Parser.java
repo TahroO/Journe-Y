@@ -46,7 +46,7 @@ public class Parser {
      */
     public String getValidCommands() {
         Stream<String> labels = Arrays.stream(CommandWord.values())
-                .filter(command -> command != CommandWord.UNKNOWN)
+                .filter(cmd -> !cmd.hidden)
                 .map(CommandWord::getLabel);
         return Util.join(labels.toList());
     }
