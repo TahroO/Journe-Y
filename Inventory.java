@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 /**
  * Represents a player's inventory.
@@ -41,7 +42,7 @@ public class Inventory {
             output.append("Your bag is empty.");
         } else {
             output.append("Items stored in your bag: ")
-                    .append(Util.join(items.keySet().stream().toList()))
+                    .append(Util.join(items.keySet().stream().collect(Collectors.toList())))
                     .append('.')
                     .append(" You still have ")
                     .append(size)

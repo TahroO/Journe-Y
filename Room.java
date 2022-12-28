@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Class Room - a room in an adventure game.
@@ -110,7 +111,7 @@ public class Room {
         output.append(description)
                 .append('\n')
                 .append("Exits: ")
-                .append(Util.join(exits.keySet().stream().toList()))
+                .append(Util.join(exits.keySet().stream().collect(Collectors.toList())))
                 .append('.');
         return output.toString();
     }
@@ -120,11 +121,11 @@ public class Room {
         if (items.size() == 0) {
             output.append("nothing special.");
         } else {
-            List<String> descriptions = items.values().stream().map(Item::getDescription).toList();
+            List<String> descriptions = items.values().stream().map(Item::getDescription).collect(Collectors.toList());
             output.append(Util.join(descriptions))
                     .append(".\n\n")
                     .append("Items to pick up: ")
-                    .append(Util.join(items.keySet().stream().toList()))
+                    .append(Util.join(items.keySet().stream().collect(Collectors.toList())))
                     .append(".");
         }
         return output.toString();
@@ -133,7 +134,7 @@ public class Room {
     public String getExitInfo() {
         StringBuilder output = new StringBuilder();
         output.append("Your exits are: ")
-                .append(Util.join(exits.keySet().stream().toList()))
+                .append(Util.join(exits.keySet().stream().collect(Collectors.toList())))
                 .append(".");
         return output.toString();
     }

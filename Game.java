@@ -61,16 +61,35 @@ public class Game implements ActionListener {
     private void processCommand(Command command) {
         CommandWord commandWord = command.getCommandWord();
         switch (commandWord) {
-            case HELP -> help(command);
-            case GO -> go(command);
-            case QUIT -> quit(command);
-            case LOOK -> look(command);
-            case PICK -> pickUp(command);
-            case BAG -> bag(command);
-            case MAP -> map(command);
-            case JUMP -> jump(command);
-            case RELOAD -> reload(command);
-            default -> view.setText(command, "I don't know what you mean ...");
+            case HELP:
+                help(command);
+                break;
+            case GO:
+                go(command);
+                break;
+            case QUIT:
+                quit(command);
+                break;
+            case LOOK:
+                look(command);
+                break;
+            case PICK:
+                pickUp(command);
+                break;
+            case BAG:
+                bag(command);
+                break;
+            case MAP:
+                map(command);
+                break;
+            case JUMP:
+                jump(command);
+                break;
+            case RELOAD:
+                reload(command);
+                break;
+            default:
+                view.setText(command, "I don't know what you mean ...");
         }
     }
 

@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -48,6 +49,6 @@ public class Parser {
         Stream<String> labels = Arrays.stream(CommandWord.values())
                 .filter(cmd -> !cmd.hidden)
                 .map(CommandWord::getLabel);
-        return Util.join(labels.toList());
+        return Util.join(labels.collect(Collectors.toList()));
     }
 }
